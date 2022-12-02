@@ -6,6 +6,8 @@ import { Injectable } from '@angular/core';
 })
 export class LocalStorageService {
 
+  
+
 
   constructor() { }
 
@@ -15,11 +17,9 @@ export class LocalStorageService {
 
   public setPersonalKeyIfNotExists() {
     if (localStorage.getItem("personalKey") === null) {
-      //random string aanmaken
-      // https://www.npmjs.com/package/randomstring?activeTab=readme
-      // var randomstring = require("randomstring");
-      // console.log(randomstring.generate());
-      localStorage.setItem("personalKey", "randomstring toevoegen");
+      //Create random string:
+      let randomString = (Math.random()).toString(36).substring(7) +(Math.random()).toString(36).substring(7) + (Math.random()).toString(36).substring(7);
+      localStorage.setItem("personalKey", randomString);
     }
   }
 

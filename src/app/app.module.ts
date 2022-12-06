@@ -6,6 +6,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { LoginComponent } from './login/login/login.component';
 import { FormsModule } from '@angular/forms';
 import { LoginModule } from './login/login.module';
+import { HttpClientModule } from '@angular/common/http';
+import { RailMapModule } from './rail-map/rail-map.module';
 
 @NgModule({
   declarations: [
@@ -15,6 +17,8 @@ import { LoginModule } from './login/login.module';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    RailMapModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

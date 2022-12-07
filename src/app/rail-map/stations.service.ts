@@ -1,7 +1,5 @@
 import { Injectable } from '@angular/core';
 
-
-
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Station } from './station';
@@ -18,8 +16,8 @@ export class StationService {
     return this.httpClient.get<Station[]>("https://localhost:44331/api/Stations/GetStations");
   }
 
-  // getArticleById(id: number): Observable<Station> {
-  //   return this.httpClient.get<Station>("http://localhost:3000/articles/" + id);
-  // }
+  GetEscapeRoomsOfStation(id: number): Observable<Station> {
+    return this.httpClient.get<Station>("https://localhost:44331/api/Stations/GetEscapeRoomsOfStation/" + id);
+  }
 
 }

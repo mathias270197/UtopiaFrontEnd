@@ -21,7 +21,12 @@ export class StationComponent implements OnInit {
   }
 
   GoToStation(id: number) {
-    // this.router.navigate(['/station', id]);
+    //als er maar één gebouw is: 
+    //navigate to questions
+
+    //Als er meerdere gebouwen zijn:
+    //navigate to neighbourhood of the station
+    this.router.navigate(['/neighbourhood', id]);
   }
 
 }

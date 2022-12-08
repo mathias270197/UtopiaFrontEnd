@@ -7,7 +7,8 @@ import { NeighbourhoodComponent } from './rail-map/neighbourhood/neighbourhood.c
 const routes: Routes = [
   { path: '', component: LoginComponent },
   { path: 'RailMap', component: StationsComponent },
-  { path: 'neighbourhood/:id', component: NeighbourhoodComponent },
+  // { path: 'neighbourhood/:id', component: NeighbourhoodComponent },
+  { path: 'neighbourhood', component: NeighbourhoodComponent },
 ];
 
 @NgModule({

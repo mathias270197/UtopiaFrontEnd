@@ -20,13 +20,13 @@ export class StationComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  GoToStation(id: number) {
+  GoToStation(stationId: number) {
     //als er maar één gebouw is: 
     //navigate to questions
 
     //Als er meerdere gebouwen zijn:
     //navigate to neighbourhood of the station
-    this.router.navigate(['/neighbourhood', id]);
+    this.router.navigate(['/neighbourhood'],{ state: {stationId: stationId} } );
   }
 
 }

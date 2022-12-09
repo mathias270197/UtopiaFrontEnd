@@ -1,0 +1,15 @@
+.neighbourhoodImg {
+    position: relative;
+    max-width: 100%;
+    vertical-align: middle;
+    height: auto;
+    border: black solid 1px;  /*  te verwijderen */
+    /* z-index: 2; */
+    
+}
+
+
+area {
+    position: absolute;
+    /* z-index: 3; */
+}

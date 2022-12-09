@@ -29,4 +29,8 @@ export class NeighbourhoodComponent implements OnInit {
     this.buildings$ = this.stationService.GetEscapeRoomsOfStation(stationId).subscribe(result => this.buildings = result);
   }
 
+  NavigateToForm() {
+    console.log('navigate to form 1')
+  }
+
 }

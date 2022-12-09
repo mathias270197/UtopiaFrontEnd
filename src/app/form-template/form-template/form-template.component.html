@@ -1,0 +1,19 @@
+<!-- <h2>{{graduateProgram.name}}</h2>
+
+<h3>Vraag nr {{graduateProgram.questions[0].id}}/{{graduateProgram.questions.length}}</h3>
+
+<p>{{graduateProgram.questions[0].question}}</p>
+
+<div *ngFor="let answer of graduateProgram.questions[0].answers">
+    <button (click)="addAnswer(graduateProgram.questions[0].id, answer.id)">{{answer.answer}}</button>
+</div> -->
+
+<h2>{{graduateProgram.name}}</h2>
+
+<h3>Vraag nr {{currentQuestion.id}}/{{graduateProgram.questions.length}}</h3>
+
+<p>{{currentQuestion.question}}</p>
+
+<div *ngFor="let answer of currentQuestion.answers">
+    <button (click)="addAnswer(currentQuestion.id, answer.id)">{{answer.answer}}</button>
+</div>

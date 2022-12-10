@@ -1,14 +1,17 @@
-<p>neighbourhood works!</p>
+<p>neighbourhood works! {{neighbourhoodImg.width}}</p>
 
-<img src="../../assets/images/neigberhood.jpg" alt="" usemap="#neighbourhood" class="neighbourhoodImg">
+<img #neighbourhoodImg class ="neighbourhoodImg" src="../../assets/images/neigberhood.jpg" alt="" usemap="#neighbourhood"  (window:resize)="ChangeViewport()">
+
+
 
 <map name="neighbourhood">
-    <area shape="rect" coords="100,160,360,420" href="coffee.htm" (click)="NavigateToForm()">
-    <!-- href verwijderen en dan onHover instellen -->
-    <!-- cords responsief aanpassen -->
-  </map>
+    <area class = "area-building1" shape="rect" coords={{cordsBuilding1}} (click)="NavigateToForm(buildings[0].id)">
+    <area class = "area-building2" shape="rect" coords="666,95,920,360" (click)="NavigateToForm(buildings[1].id)">
+</map>
+  
 
 <div *ngFor="let building of buildings">
+    
     {{building.id}}
     {{building.graduateProgram}}
     {{building.color}}

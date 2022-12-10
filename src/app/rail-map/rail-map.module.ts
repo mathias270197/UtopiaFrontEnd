@@ -4,7 +4,6 @@ import { StationsComponent } from './stations/stations.component';
 import { StationComponent } from './station/station.component';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NeighbourhoodComponent } from './neighbourhood/neighbourhood.component';
-import { BuildingComponent } from './building/building.component';
 
 
 
@@ -13,7 +12,6 @@ import { BuildingComponent } from './building/building.component';
     StationsComponent,
     StationComponent,
     NeighbourhoodComponent,
-    BuildingComponent,
   ],
   imports: [
     CommonModule

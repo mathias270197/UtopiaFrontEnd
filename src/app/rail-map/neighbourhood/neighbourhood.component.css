@@ -4,12 +4,12 @@
     vertical-align: middle;
     height: auto;
     border: black solid 1px;  /*  te verwijderen */
-    /* z-index: 2; */
-    
 }
 
 
 area {
+    cursor: pointer;
     position: absolute;
-    /* z-index: 3; */
+    border: red solid 1px;
+    opacity: 0.4;
 }

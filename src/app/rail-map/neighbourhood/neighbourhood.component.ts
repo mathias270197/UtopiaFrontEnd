@@ -8,7 +8,7 @@ import { StationService } from '../stations.service';
 @Component({
   selector: 'app-neighbourhood',
   templateUrl: './neighbourhood.component.html',
-  styleUrls: ['./neighbourhood.component.css']
+  styleUrls: ['./neighbourhood.component.scss']
 })
 export class NeighbourhoodComponent implements OnInit,AfterViewInit {
 

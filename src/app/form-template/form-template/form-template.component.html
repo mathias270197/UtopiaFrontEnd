@@ -15,5 +15,5 @@
 <p>{{currentQuestion.question}}</p>
 
 <div *ngFor="let answer of currentQuestion.answers">
-    <button (click)="addAnswer(currentQuestion.id, answer.id)">{{answer.answer}}</button>
+    <button class="testscss btn btn-info" (click)="addAnswer(currentQuestion.id, answer.id)">{{answer.answer}}</button>
 </div>

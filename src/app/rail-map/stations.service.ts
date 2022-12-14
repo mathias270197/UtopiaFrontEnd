@@ -14,7 +14,7 @@ export class StationService {
   }
 
   getStations(): Observable<Station[]> {
-    return this.httpClient.get<Station[]>("https://localhost:44331/api/Stations/GetStations");
+    return this.httpClient.get<Station[]>("https://project-backend-mathias270197.cloud.okteto.net/api/Stations/GetStations");
   }
 
   GetEscapeRoomsOfStation(id: number): Observable<Building[]> {

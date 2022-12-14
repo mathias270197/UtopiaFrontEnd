@@ -7,7 +7,7 @@ import { FormTemplateComponent } from './form-template/form-template/form-templa
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
-  { path: 'RailMap', component: StationsComponent },
+  { path: 'railmap', component: StationsComponent },
   { path: 'neighbourhood', component: NeighbourhoodComponent },
   { path: 'form', component: FormTemplateComponent},
 ];

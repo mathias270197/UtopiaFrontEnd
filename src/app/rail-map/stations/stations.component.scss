@@ -1,0 +1,123 @@
+$strokeColor: #C74A47;
+body{
+	font-size: 16px;
+}
+
+#next, #previous{
+	cursor: pointer;
+	position: absolute;
+	transform: translateY(-90%);
+	bottom: 2%;
+	width: 25px;
+	transition: all 250ms ease;
+}
+
+@media (max-width: 800px) {
+	#next, #previous{
+		display: none;
+	}
+}
+
+#next{
+	cursor: pointer;
+	right: 100px;
+	&:hover{
+		right: 98px;
+	}
+}
+
+#previous{
+	cursor: pointer;
+	left: 100px;
+		&:hover{
+		left: 98px;
+	}
+}
+#cityBoxes{
+	width: 100%;
+	max-width: 400px;
+	margin: 0 auto;
+	position: relative;
+	overflow-x: hidden;
+	// @media (min-width: 600px) {
+	// 	position: absolute;
+	// }
+}
+
+.city-info-box{
+	width: 100%;
+	text-align: center;
+	margin: 0 auto;
+	padding: 5px;
+	opacity: 0;
+	position: absolute;
+	top: 0;
+	transition: all 250ms ease;
+	&.active{
+		opacity: 1;
+	}
+	h2, h3{
+		margin: 6px 0;
+		font-family: sans-serif;
+	}
+	h2{
+		font-size: 1.4em;
+	}
+	h3{
+		font-size: 1em;
+	}
+	 p{
+		margin: 3px;
+		font-family: serif;
+	}
+}
+
+.map-svg{
+	width: 100%;
+	max-width: 800px;
+	margin: 0 auto;
+	position: relative;
+	outline: none !important;
+	// @media (min-width: 800px) {
+	// 	display: flex;
+	// 	max-width: 1200px;
+	// }
+}
+#railmap{
+	margin-top: 50px;
+	width: 100%;
+	.station{
+		cursor: pointer;
+		transition: all 250ms ease;
+		&.active{
+			fill: #1a1a1a;
+		}
+		&:hover{
+			//stroke: lighten($strokeColor, 15%);
+			fill: #1a1a1a;
+		}
+	}
+	// @media (min-width: 800px) {
+	// 	min-height: 320px;
+	// }
+}
+
+.city-text{
+	display: none;
+}
+
+.ui-loader.ui-corner-all.ui-body-a.ui-loader-default{
+	display: none;
+}
+
+
+.city-text,
+.city-line{
+ display: none;
+}
+
+// @keyframes dash {
+//   to {
+//     stroke-dashoffset: -100;
+//   }
+// }

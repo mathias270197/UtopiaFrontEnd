@@ -1,12 +1,14 @@
 <p>neighbourhood works! {{neighbourhoodImg.width}}</p>
 
-<img #neighbourhoodImg class ="neighbourhoodImg" src="../../assets/images/neigberhood.jpg" alt="" usemap="#neighbourhood"  (window:resize)="ChangeViewport()">
+<img #neighbourhoodImg class ="neighbourhoodImg" src={{buildingsImg}} alt="" usemap="#neighbourhood"  (window:resize)="ChangeViewport()">
 
 
 
 <map name="neighbourhood">
-    <area class = "area-building1" shape="rect" coords={{cordsBuilding1}} (click)="NavigateToForm(buildings[0].id)">
-    <area class = "area-building2" shape="rect" coords="666,95,920,360" (click)="NavigateToForm(buildings[1].id)">
+    <area class = "area-building" shape="rect" coords={{cordsBuilding1}} (click)="NavigateToForm(buildings[0].id)">
+    <area *ngIf="numberOfBuildingsIs2" class = "area-building" shape="rect" coords={{cordsBuilding2Version1}}  (click)="NavigateToForm(buildings[1].id)">
+    <area *ngIf="numberOfBuildingsIs3" class = "area-building" shape="rect" coords={{cordsBuilding2Version1}}(click)="NavigateToForm(buildings[1].id)">
+    <area *ngIf="numberOfBuildingsIs3" class = "area-building" shape="rect" coords={{cordsBuilding3}}  (click)="NavigateToForm(buildings[2].id)">
 </map>
   
 

@@ -1,15 +1,20 @@
-.neighbourhoodImg {
+
+
+.neighbourhood {
     position: relative;
     max-width: 100%;
     vertical-align: middle;
     height: auto;
-    border: black solid 1px;  /*  te verwijderen */
 }
 
+map {
+    position: absolute;
+    border: green solid 1px;
+}
 
 area {
     cursor: pointer;
     position: absolute;
-    border: red solid 1px;
-    opacity: 0.4;
+    // border: red solid 1px;
+    // opacity: 0.4;
 }

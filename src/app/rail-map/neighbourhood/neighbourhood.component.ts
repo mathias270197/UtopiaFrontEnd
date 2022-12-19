@@ -1,5 +1,6 @@
 import { ChangeDetectorRef, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
+import { NgbAlertConfig } from '@ng-bootstrap/ng-bootstrap';
 import { Subscription } from 'rxjs';
 import { Building } from '../building';
 import { StationService } from '../stations.service';
@@ -33,8 +34,8 @@ export class NeighbourhoodComponent implements OnInit {
 
   
 
-  constructor(private stationService: StationService,private router: Router, private cd: ChangeDetectorRef) {
-    
+  constructor(ngbAlertConfig: NgbAlertConfig, private stationService: StationService,private router: Router, private cd: ChangeDetectorRef) {
+    // ngbAlertConfig.animation = false;
     this.stationId = +this.router.getCurrentNavigation()?.extras.state?.['stationId'];
     this.GetEscapeRoomsOfStation(this.stationId);
     this.numberOfBuildings = +this.router.getCurrentNavigation()?.extras.state?.['numberOfBuildings'];

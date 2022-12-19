@@ -4,6 +4,7 @@ import { StationsComponent } from './stations/stations.component';
 import { StationComponent } from './station/station.component';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NeighbourhoodComponent } from './neighbourhood/neighbourhood.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 
@@ -14,7 +15,9 @@ import { NeighbourhoodComponent } from './neighbourhood/neighbourhood.component'
     NeighbourhoodComponent,
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    NgbModule,
+
   ],
 })
 export class RailMapModule { }

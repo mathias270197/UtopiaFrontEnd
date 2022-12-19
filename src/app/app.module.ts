@@ -9,6 +9,7 @@ import { LoginModule } from './login/login.module';
 import { FormTemplateComponent } from './form-template/form-template/form-template.component';
 import { HttpClientModule } from '@angular/common/http';
 import { RailMapModule } from './rail-map/rail-map.module';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { RailMapModule } from './rail-map/rail-map.module';
     FormsModule,
     RailMapModule,
     HttpClientModule,
+    NgbModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

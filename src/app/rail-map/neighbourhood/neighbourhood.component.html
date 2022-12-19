@@ -6,8 +6,8 @@
 
 <map name="neighbourhood">
     <area class = "area-building" shape="rect" coords={{cordsBuilding1}} (click)="NavigateToForm(buildings[0].id)">
-    <area *ngIf="numberOfBuildingsIs2" class = "area-building" shape="rect" coords={{cordsBuilding2Version1}}  (click)="NavigateToForm(buildings[1].id)">
-    <area *ngIf="numberOfBuildingsIs3" class = "area-building" shape="rect" coords={{cordsBuilding2Version1}}(click)="NavigateToForm(buildings[1].id)">
+    <area *ngIf="numberOfBuildingsIs2" class = "area-building" shape="rect" coords={{cordsBuilding2Version1}} (click)="NavigateToForm(buildings[1].id)">
+    <area *ngIf="numberOfBuildingsIs3" class = "area-building" shape="rect" coords={{cordsBuilding2Version2}} (click)="NavigateToForm(buildings[1].id)">
     <area *ngIf="numberOfBuildingsIs3" class = "area-building" shape="rect" coords={{cordsBuilding3}}  (click)="NavigateToForm(buildings[2].id)">
 </map>
   

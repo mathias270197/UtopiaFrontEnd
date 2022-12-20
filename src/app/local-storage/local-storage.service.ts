@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Person } from '../login/person';
 
 
 @Injectable({
@@ -6,10 +7,25 @@ import { Injectable } from '@angular/core';
 })
 export class LocalStorageService {
 
-  
+  person: Person = {
+    PersonalKey : "",
+    UserName : "",
+  };
 
+  currentUserName: string | null = null;
+  personalKey: string | null = null;
 
   constructor() { }
+
+  public getCurrentUser() {
+    this.currentUserName = localStorage.getItem("currentUserName")
+    this.personalKey = localStorage.getItem("personalKey")
+    if (this.currentUserName !== null && this.personalKey !== null) {
+    this.person.UserName = this.currentUserName;
+    this.person.PersonalKey = this.personalKey
+    }
+    return this.person
+  }
 
   public setCurrentUserName( currentUserName: string) {
     localStorage.setItem("currentUserName", currentUserName);

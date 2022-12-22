@@ -54,18 +54,18 @@ export class FormTemplateComponent implements OnInit {
   interval!: NodeJS.Timer;
 
   // Variables for the circular progress
-  percent: number = 100;
-  radius: number = 25;
-  showInnerStroke: boolean = false;
-  outerStrokeWidth: number = 3;
-  innerStrokeWidth: number = 1;
-  outerStrokeColor: string = "#78C000";
-  innerStrokeColor: string = "#78C000";
-  animation: boolean = true;
-  animationDuration: number = 1000 * this.initialTime;
-  showUnits: boolean = false;
-  showSubtitle: boolean = false;
-  startFromZero: boolean = false;
+  // percent: number = 100;
+  // radius: number = 25;
+  // showInnerStroke: boolean = false;
+  // outerStrokeWidth: number = 3;
+  // innerStrokeWidth: number = 1;
+  // outerStrokeColor: string = "#78C000";
+  // innerStrokeColor: string = "#78C000";
+  // animation: boolean = true;
+  // animationDuration: number = 1000 * this.initialTime;
+  // showUnits: boolean = false;
+  // showSubtitle: boolean = false;
+  // startFromZero: boolean = false;
   // title: string = this.timeLeft.toString();
   // title: string = this.timeLeft.toString();
 

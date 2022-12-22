@@ -4,13 +4,20 @@ import { Observable } from 'rxjs';
 import { Station } from './station';
 import { Building } from './building';
 import { environment } from '../../environments/environment.prod';
+import { Person } from '../login/person';
+import { LocalStorageService } from '../local-storage/local-storage.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class StationService {
 
-  constructor(private httpClient: HttpClient) {
+  person: Person = {
+    PersonalKey : "",
+    UserName : "",
+  }
+
+  constructor(private httpClient: HttpClient, private localStorageService: LocalStorageService ) {
   }
 
   getStations(): Observable<Station[]> {
@@ -18,7 +25,8 @@ export class StationService {
   }
 
   GetEscapeRoomsOfStation(id: number): Observable<Building[]> {
-    return this.httpClient.get<Building[]>(environment.apiUrl + "/api/Stations/GetEscapeRoomsOfStation/" + id);
+    this.person = this.localStorageService.getCurrentUser();
+    return this.httpClient.get<Building[]>(environment.apiUrl + "/api/Stations/GetEscapeRoomsOfStation/" + id + "/" + this.person.UserName +"/" +this.person.PersonalKey);
   }
 
 }

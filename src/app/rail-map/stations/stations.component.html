@@ -1,3 +1,25 @@
+<div id="parisWrap" class="map-svg">
+    <svg class="u-subway-map" id="railmap" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 170 180">
+        <g id="track" fill="none" stroke="purple">
+            <path class="track-line" stroke-width="2.412"
+                d="M17.858 73.194 v-20 h135 v-20" />
+            
+        </g>
+        <g stroke="green" fill="none">
+            <path class="track-line" stroke-width="2.412"
+                d="M15.858 20.694 h53.277 v120"/>
+        </g>
+        <g id="stops" fill="#FFF" stroke="black">
+            <circle class="station active" cx="18.182" cy="78.825" r="7" stroke-width="2" fill="white" />
+            <circle class="station" cx="68.886" cy="53.167" r="7" stroke-width="2" fill="white"/>
+            <circle class="station" cx="112.835" cy="53.167" r="7" stroke-width="2" fill="white"/>
+            <circle class="station" cx="152.284" cy="30.694" r="7" stroke-width="2" fill="white"/>
+            <circle class="station" cx="68.886" cy="90" r="7" stroke-width="2" fill="white"/>
+            <circle class="station" cx="68.886" cy="140" r="7" stroke-width="2" fill="white"/>
+            <circle class="station" cx="18.886" cy="20.694" r="7" stroke-width="2" fill="white"/>
+        </g>
+    </svg>
+</div>
 <div>
     <app-station *ngFor="let station of stations" [station]="station"></app-station>
 </div>

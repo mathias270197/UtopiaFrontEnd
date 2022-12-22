@@ -28,26 +28,13 @@ export class StationComponent implements OnInit {
 
     //als er maar één gebouw is: 
 
-    switch(this.station.numberOfBuildings) { 
-      case 1: { 
-        this.router.navigate(['/form'],{ state: {firstBuildingId: this.station.firstBuildingId} } );
-        console.log("go to questions of building with ID: " + this.station.firstBuildingId);
-        break; 
-      } 
-      case 2: { 
-        this.router.navigate(['/neighbourhood'],{ state: {stationId:  this.station.id} } );
-        break; 
-      } 
-      default: { 
-        console.log("to implements");
-        break; 
-      } 
-   } 
-
-
-    //Als er meerdere gebouwen zijn:
-    //navigate to neighbourhood of the station
-    // this.router.navigate(['/neighbourhood'],{ state: {stationId: stationId} } );
+    if (this.station.numberOfBuildings == 1) {
+      this.router.navigate(['/form'], { state: { firstBuildingId: this.station.firstBuildingId } });
+      console.log("go to questions of building with ID: " + this.station.firstBuildingId);
+    }
+    else {
+      this.router.navigate(['/neighbourhood'], { state: { stationId: this.station.id, numberOfBuildings: this.station.numberOfBuildings } });
+    }
   }
 
 }

@@ -9,6 +9,7 @@ import { LoginModule } from './login/login.module';
 import { FormTemplateComponent } from './form-template/form-template/form-template.component';
 import { HttpClientModule } from '@angular/common/http';
 import { RailMapModule } from './rail-map/rail-map.module';
+import { NgCircleProgressModule } from 'ng-circle-progress';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,15 @@ import { RailMapModule } from './rail-map/rail-map.module';
     FormsModule,
     RailMapModule,
     HttpClientModule,
+    NgCircleProgressModule.forRoot({
+      // set defaults here
+      radius: 100,
+      outerStrokeWidth: 16,
+      innerStrokeWidth: 8,
+      outerStrokeColor: "#78C000",
+      innerStrokeColor: "#C7E596",
+      animationDuration: 300,
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent]

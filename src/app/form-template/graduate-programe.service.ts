@@ -25,7 +25,7 @@ export class GraduateProgramService {
             {
               id: 2,
               correct: false,
-              answer: "Antwoord B"
+              answer: "Dit is een vervelend lang antwoord dat heel veel plaats inneemt"
             },
             {
               id: 3,
@@ -43,24 +43,24 @@ export class GraduateProgramService {
           question: "Wat is het antwoord op deze vraag 2?",
           answers: [
             {
-              id: 1,
+              id: 5,
               correct: false,
-              answer: "Antwoord A"
+              answer: "Antwoord E"
             },
             {
-              id: 2,
+              id: 6,
               correct: false,
-              answer: "Antwoord B"
+              answer: "Antwoord F"
             },
             {
-              id: 3,
+              id: 7,
               correct: true,
-              answer: "Antwoord C"
+              answer: "Antwoord G"
             },
             {
-              id: 4,
+              id: 8,
               correct: false,
-              answer: "Antwoord D"
+              answer: "Antwoord H"
             }
           ]
         },
@@ -68,24 +68,24 @@ export class GraduateProgramService {
           question: "Wat is het antwoord op deze vraag 3?",
           answers: [
             {
-              id: 1,
+              id: 9,
               correct: false,
-              answer: "Antwoord A"
+              answer: "Antwoord I"
             },
             {
-              id: 2,
+              id: 10,
               correct: false,
-              answer: "Antwoord B"
+              answer: "Antwoord J"
             },
             {
-              id: 3,
+              id: 11,
               correct: false,
-              answer: "Antwoord C"
+              answer: "Antwoord K"
             },
             {
-              id: 4,
+              id: 12,
               correct: true,
-              answer: "Antwoord D"
+              answer: "Antwoord L"
             }
           ]
         }
@@ -101,22 +101,22 @@ export class GraduateProgramService {
           question: "Wat is het antwoord op deze vraag 2",
           answers: [
             {
-              id: 1,
+              id: 13,
               correct: false,
               answer: "Antwoord A"
             },
             {
-              id: 2,
+              id: 14,
               correct: true,
               answer: "Antwoord B"
             },
             {
-              id: 3,
+              id: 15,
               correct: false,
               answer: "Antwoord C"
             },
             {
-              id: 4,
+              id: 16,
               correct: false,
               answer: "Antwoord D"
             }

@@ -1,5 +1,32 @@
 @import "../../../_variables";
 
-.testscss {
-    color: $testcolor
+.answer-btn {
+    color: white;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    text-align: center;
+    background-color: green;
+    border: none;
+    width: 100%;
+}
+
+// Styling loading bar
+.loadingbar {
+    height: 5px;
+    box-shadow: none;
+}
+
+.loadingbar[disabled] {
+    cursor: default;
+}
+
+.loadingbar.launch-btn {
+    border: none;
+    transition: all 0.1s ease-in;
+    // width: 500px;
+}
+
+.grad {
+    background-image: linear-gradient(to right, green, red);
+    height: 10px;
 }

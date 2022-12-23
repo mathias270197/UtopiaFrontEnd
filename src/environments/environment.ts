@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'https://localhost:59065'
+  apiUrl: 'https://localhost:56431'
+
   // https://project-backend-mathias270197.cloud.okteto.net 
 };
 

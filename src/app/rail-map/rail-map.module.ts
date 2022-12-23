@@ -1,10 +1,11 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { StationsComponent } from './stations/stations.component';
 import { StationComponent } from './station/station.component';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NeighbourhoodComponent } from './neighbourhood/neighbourhood.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
 
 
 
@@ -16,6 +17,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
   ],
   imports: [
     CommonModule,
+  ],
+  schemas:[
+    CUSTOM_ELEMENTS_SCHEMA,
     NgbModule,
 
   ],

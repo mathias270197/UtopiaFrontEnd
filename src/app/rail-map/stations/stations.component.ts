@@ -3,6 +3,8 @@ import { ActivatedRoute } from '@angular/router';
 import { Observable, Subscription } from 'rxjs';
 import { Station } from '../station';
 import { StationService } from '../stations.service';
+import { PointsService } from 'src/app/points/points.service';
+
 
 @Component({
   selector: 'app-stations',
@@ -15,11 +17,12 @@ export class StationsComponent implements OnInit {
   stations$: Subscription = new Subscription();
   // stations$: Observable<Station[]> = new Observable<Station[]>();
   errorMessage: string = '';
-
-  constructor(private stationService: StationService, private route: ActivatedRoute) { }
+  points: number = 1;
+  constructor(private stationService: StationService, private route: ActivatedRoute, private pointsService: PointsService) { }
 
   ngOnInit(): void {
     this.getStations();
+   this.points = this.pointsService.getPoints()
   }
 
   getStations() {

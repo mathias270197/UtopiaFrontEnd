@@ -22,4 +22,5 @@ export class StationService {
     return this.httpClient.get<Building[]>(environment.apiUrl + "/api/Stations/GetEscapeRoomsOfStation/" + id);
   }
 
+
 }

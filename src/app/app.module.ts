@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
@@ -9,6 +9,8 @@ import { LoginModule } from './login/login.module';
 import { FormTemplateComponent } from './form-template/form-template/form-template.component';
 import { HttpClientModule } from '@angular/common/http';
 import { RailMapModule } from './rail-map/rail-map.module';
+import { PointsModule } from './points/points.module';
+
 
 @NgModule({
   declarations: [
@@ -21,6 +23,7 @@ import { RailMapModule } from './rail-map/rail-map.module';
     FormsModule,
     RailMapModule,
     HttpClientModule,
+    PointsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -4,7 +4,8 @@ import { StationsComponent } from './stations/stations.component';
 import { StationComponent } from './station/station.component';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NeighbourhoodComponent } from './neighbourhood/neighbourhood.component';
-;
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
 
 
 
@@ -19,7 +20,8 @@ import { NeighbourhoodComponent } from './neighbourhood/neighbourhood.component'
   ],
   schemas:[
     CUSTOM_ELEMENTS_SCHEMA,
- 
+    NgbModule,
+
   ],
 })
 export class RailMapModule { }

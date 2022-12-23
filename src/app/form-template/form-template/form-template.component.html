@@ -1,19 +1,18 @@
-<!-- <h2>{{graduateProgram.name}}</h2>
+<div class="container">
+    <div class="row">
+        <p class="col-6">{{graduateProgram.name}}</p>
+        <p class="col-6 text-end">{{timeLeft}}</p>
+            <div class="loadingbar btn-secondary launch-btn" [style.background]="progressStyle">
+            </div>
+            <!-- <div class="grad"></div> -->
 
-<h3>Vraag nr {{graduateProgram.questions[0].id}}/{{graduateProgram.questions.length}}</h3>
-
-<p>{{graduateProgram.questions[0].question}}</p>
-
-<div *ngFor="let answer of graduateProgram.questions[0].answers">
-    <button (click)="addAnswer(graduateProgram.questions[0].id, answer.id)">{{answer.answer}}</button>
-</div> -->
-
-<h2>{{graduateProgram.name}}</h2>
-
-<h3>Vraag nr {{currentQuestion.id}}/{{graduateProgram.questions.length}}</h3>
-
-<p>{{currentQuestion.question}}</p>
-
-<div *ngFor="let answer of currentQuestion.answers">
-    <button class="testscss btn btn-info" (click)="addAnswer(currentQuestion.id, answer.id)">{{answer.answer}}</button>
+    </div>
+    <div class="text-center">
+        <h3>Vraag nr {{currentQuestion.id}}/{{graduateProgram.questions.length}}</h3>
+        <p>{{currentQuestion.question}}</p>
+        <div *ngFor="let answer of currentQuestion.answers">
+            <button class="answer-btn btn btn-info"
+                (click)="addAnswer(currentQuestion.id, answer.id)">{{answer.answer}}</button>
+        </div>
+    </div>
 </div>

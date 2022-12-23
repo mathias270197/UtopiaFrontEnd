@@ -23,7 +23,7 @@ export class LoginComponent implements OnInit, OnDestroy {
   }
 
   onSubmit() {
-    //validatie toevoegen voor login name: mag niet "currentUserName" of "personalKey" zijn!!!
+    //validatie toevoegen voor login name: mag niet "currentUserName", "" of "personalKey" zijn!!!
     this.loginService.login(this.userName)
     this.router.navigateByUrl("/stations")
   }

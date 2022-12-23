@@ -1,21 +1,26 @@
 <p>neighbourhood works! {{neighbourhoodImg.width}}</p>
 
-<img #neighbourhoodImg class ="neighbourhoodImg" src={{buildingsImg}} alt="" usemap="#neighbourhood"  (window:resize)="ChangeViewport()">
+
+<div class ="neighbourhood">
+    <img #neighbourhoodImg class ="neighbourhoodImg" src={{buildingsImg}} alt="" usemap="#neighbourhood"  (window:resize)="ChangeViewport()">
 
 
 
-<map name="neighbourhood">
-    <area class = "area-building" shape="rect" coords={{cordsBuilding1}} (click)="NavigateToForm(buildings[0].id)">
-    <area *ngIf="numberOfBuildingsIs2" class = "area-building" shape="rect" coords={{cordsBuilding2Version1}}  (click)="NavigateToForm(buildings[1].id)">
-    <area *ngIf="numberOfBuildingsIs3" class = "area-building" shape="rect" coords={{cordsBuilding2Version1}}(click)="NavigateToForm(buildings[1].id)">
-    <area *ngIf="numberOfBuildingsIs3" class = "area-building" shape="rect" coords={{cordsBuilding3}}  (click)="NavigateToForm(buildings[2].id)">
-</map>
-  
+    <map name="neighbourhood">
+        <area placement="middle" ngbTooltip="Tooltip on right" class = "area-building" shape="rect" coords={{cordsBuilding1}} (click)="NavigateToForm(buildings[0].id)">
+        <area placement="middle" ngbTooltip="Tooltip on right" *ngIf="numberOfBuildingsIs2" class = "area-building" shape="rect" coords={{cordsBuilding2Version1}} (click)="NavigateToForm(buildings[1].id)">
+        <area placement="middle" ngbTooltip="Tooltip on right" *ngIf="numberOfBuildingsIs3" class = "area-building" shape="rect" coords={{cordsBuilding2Version2}} (click)="NavigateToForm(buildings[1].id)">
+        <area *ngIf="numberOfBuildingsIs3" class = "area-building" shape="rect" coords={{cordsBuilding3}}  (click)="NavigateToForm(buildings[2].id)">
+    </map>
+</div>
+
+
 
 <div *ngFor="let building of buildings">
     
     {{building.id}}
     {{building.graduateProgram}}
     {{building.color}}
+    {{building.bonus}}
 </div>
 

@@ -1,0 +1,66 @@
+@startuml
+actor u as "User"
+participant l as "Login" #99FF99
+database ls as "Local\nStorage"
+participant mg as "Metro\nGlobal" #99FF99
+participant mm as "Metro\nMap" #99FF99
+participant ml as "Metro\nLine" #99FF99
+participant nbh as "Neighborhood" #99FF99
+participant f as "From\nTemplate" #99FF99
+participant s as "Summary" #99FF99
+database api as "API"
+database mms as "MetroMap\nService"
+u --> l : Enter name
+l -> ls : Store userName
+l -> ls : Store UserKey
+l -> ls : Results object
+l -> ls : Current station ID
+l -> mg : /stations
+mg -> mm : Load MetroMap\ncomponent
+mm -> api : GET api/faculties/graduateprograms
+api -> mm : [Faculties].n
+mm -> mms : Call MetroMapService(faculties)
+mms -> mm : Provide metrostation coordinates
+mm -> mm : Render\nmetromap
+mg -> ml : Load MetroLine\ncomponent
+ml -> api : GET api/faculties/{id}/graduateprograms
+api -> ml : [Faculties].1
+ml -> ml : Render\nMetroLine
+mg -> ls : Store\nstart\nstation
+mg -> mm : Highlight\ncurrent\nstation
+mg -> ml : Highlight\ncurrent\nstation
+u --> ml : Clicks on station in MetroLine component
+ml -> ls : Update current\nstation
+ml -> mg : Update current\nstation
+mg -> mm : Update current\nstation
+ml -> ml : Show popup\nto enter\nneighborhood
+u --> ml : Clicks popup to enter
+ml -> nbh : /neighborhood
+nbh -> ls : Get current station
+ls -> nbh : Current station ID
+nbh -> mms : Get graduate program IDs
+mms -> nbh : [Graduate program ID].n
+nbh -> nbh : Render\nneighborhood
+u --> nbh : Clicks building
+nbh -> f : /form
+f -> api : GET api/graduateprograms\n/{id}/multiplechoiceanswers
+api -> f : [Graduateprogram].1
+f -> ls : Get UserKey
+ls -> f : Userkey
+loop 10 questions
+    f -> f : Render next\nquestion
+    u --> f : Answer question
+    f -> ls : Update results object with new answer
+    f -> api : POST api/answers
+end
+f -> s : /summary
+s -> ls : Get answers for escaperoom
+ls -> s : Answers
+s -> s : Calculate\nresult
+s -> s : What if no\nescaped?
+s -> ls : Update Result object
+u --> s : Clicks back to neigborhood
+s -> nbh : Go back to neighborhood
+u --> nbh : Clicks back to metro map
+nbh -> mg : Go back to metro map
+@enduml

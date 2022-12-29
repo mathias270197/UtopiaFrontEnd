@@ -17,11 +17,10 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
   ],
   imports: [
     CommonModule,
+    NgbModule,
   ],
   schemas:[
     CUSTOM_ELEMENTS_SCHEMA,
-    NgbModule,
-
   ],
 })
 export class RailMapModule { }

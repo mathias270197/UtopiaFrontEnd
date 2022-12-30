@@ -4,6 +4,7 @@ import { GraduateProgram } from '../model/graduate-program';
 import { Question } from '../model/question';
 import { Subscription, timer } from 'rxjs';
 import { Faculty } from '../model/faculty';
+import { CoordinatesService } from '../model/coordinates.service';
 
 @Component({
   selector: 'app-form-template',
@@ -11,6 +12,9 @@ import { Faculty } from '../model/faculty';
   styleUrls: ['./form-template.component.scss']
 })
 export class FormTemplateComponent implements OnInit {
+
+  constructor(private graduateProgramService: GraduateProgramService, private coordinatesService: CoordinatesService) {
+  }
 
   faculties: Faculty[] = [];
   faculties$: Subscription = new Subscription();
@@ -81,19 +85,20 @@ export class FormTemplateComponent implements OnInit {
   colorPalette: string[] = ["#00FF00", "#1AE600", "#33CC00", "#4DB300", "#669900", "#808000", "#996600", "#B34D00", "#CC3300", "#E61A00", "#FF0000"];
   colorPalleteIndex = 0;
 
-  constructor(private graduateProgramService: GraduateProgramService) {
-  }
+
 
   ngOnInit(): void {
     this.getFaculties();
     this.getFacultyById(1);
     this.getGraduateProgramById(1);
+
+    this.coordinatesService.getCoordinates();
     // this.startTimer();
   }
 
   // Get all the faculties and their graduate programs
-  getFaculties() {
-    this.faculties$ = this.graduateProgramService.getFaculties().subscribe(faculties => {
+  async getFaculties() {
+    this.faculties$ = await this.graduateProgramService.getFaculties().subscribe(faculties => {
       this.faculties = faculties;
       console.log('This is the array with the faculties:')
       console.log(this.faculties);
@@ -102,8 +107,8 @@ export class FormTemplateComponent implements OnInit {
   }
 
   // Get one faculty and its graduate programs
-  getFacultyById(id: number) {
-    this.faculties$ = this.graduateProgramService.getFacultyById(id).subscribe(faculties => {
+  async getFacultyById(id: number) {
+    this.faculties$ = await this.graduateProgramService.getFacultyById(id).subscribe(faculties => {
       this.faculties = faculties;
       console.log('This is the array with the faculty:')
       console.log(this.faculties);
@@ -112,8 +117,8 @@ export class FormTemplateComponent implements OnInit {
   }
 
   // Get one graduate program with questions and multiple choice answers
-  getGraduateProgramById(id: number) {
-    this.graduatePrograms$ = this.graduateProgramService.getGraduateProgramById(id).subscribe(graduatePrograms => {
+  async getGraduateProgramById(id: number) {
+    this.graduatePrograms$ = await this.graduateProgramService.getGraduateProgramById(id).subscribe(graduatePrograms => {
       this.graduatePrograms = graduatePrograms;
       console.log('This is the array with the graduate programs:')
       console.log(this.graduatePrograms);

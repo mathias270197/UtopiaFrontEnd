@@ -17,13 +17,13 @@ export class CoordinatesService {
     {
       color: "red",
       x: [10, 10, 10, 10, 10, 10, 10, 10, 10, 10],
-      y: [ 0, 10, 20, 30, 40, 50, 60, 70, 80, 90],
+      y: [0, 10, 20, 30, 40, 50, 60, 70, 80, 90],
       fillUpOrder: [2, 1, 0, 3, 4, 5, 6, 7, 8, 9],
     },
     {
       color: "dark green",
       x: [10, 20, 30, 40, 50, 60, 70, 80, 90, 100],
-      y: [50, 50, 50, 50, 50, 50, 50, 50, 50,  50],
+      y: [50, 50, 50, 50, 50, 50, 50, 50, 50, 50],
       fillUpOrder: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
     },
     {
@@ -86,25 +86,26 @@ export class CoordinatesService {
     this.faculties$ = await this.graduateProgramService.getFaculties().subscribe(faculties => {
       this.faculties = faculties;
       let lines: any[] = [];
-      // console.log('This is within the coordinates service:')
-      // console.log(this.faculties);
       // For every line
       for (let i = 0; i < this.faculties.length; i++) {
         let stations: any = [];
-        // console.log('In faculty ' + this.faculties[i].id);
-        // For every station
-        for (let j = 0; j < this.faculties[i].graduatePrograms.length; j++) {
-          // console.log('In graduate program ' + this.faculties[i].graduatePrograms[j].id);
-          // Get the next station to fill up
-          let positionOnLine = this.defaultLines[i].fillUpOrder[j];
-          // Set the template for this station
+        // Draw the line first
+        for (let j = 0; j < this.defaultLines[i].x.length; j++) {
+          // Set the template for this station, including a null for the graduateProgramId
           let tempStation = {
-            graduateProgramId: this.faculties[i].graduatePrograms[j].id,
-            x: this.defaultLines[i].x[positionOnLine],
-            y: this.defaultLines[i].y[positionOnLine],
+            graduateProgramId: null,
+            x: this.defaultLines[i].x[j],
+            y: this.defaultLines[i].y[j],
           }
           // Push the station into the stations array
           stations.push(tempStation);
+        }
+        // Now fill up the n-faculty stations with the graduateProgramIds
+        for (let k = 0; k < this.faculties[i].graduatePrograms.length; k++) {
+          // Get the index of the station that is next in line to be filled up
+          let next = this.defaultLines[i].fillUpOrder[k];
+          // Put the graduateProgramId into that specific station
+          stations[next].graduateProgramId = this.faculties[i].graduatePrograms[k].id;
         }
         // set the template for this line
         let tempLine = {

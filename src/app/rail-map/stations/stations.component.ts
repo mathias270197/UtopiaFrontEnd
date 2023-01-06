@@ -56,7 +56,7 @@ export class StationsComponent implements OnInit {
   }
 
   getLines() {
-    this.lines = this.localStorageService.getLines;
+    this.lines = this.localStorageService.getLines();
     console.log('Dit zijn de lines na ophalen uit local storage');
     console.log(this.lines)
   };

@@ -22,7 +22,7 @@ export class CoordinatesService {
       x: [20, 5, 10, 5, 10, 5, 10, 5, 10, 5],
       y: [10, 10, 20, 30, 40, 50, 60, 70, 80, 90],
       fillUpOrder: [5, 1, 0, 6, 8, 2, 4, 7, 3, 9],
-      connection: [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1],
+      connection: [null, null, null, null, null, null, null, null, null, null],
     },
     {
       id: 1,
@@ -30,15 +30,15 @@ export class CoordinatesService {
       x: [10, 20, 30, 40, 50, 60, 70, 80, 90, 100],
       y: [20, 20, 50, 50, 50, 50, 50, 50, 50, 50],
       fillUpOrder: [3, 1, 6, 9, 4, 5, 2, 7, 8, 0],
-      connection: [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1],
+      connection: [null, null, null, null, null, null, null, null, null, null],
     },
     {
       id: 2,
       color: "blue",
       x: [30, 30, 30, 30, 30, 30, 30, 30, 30, 30],
       y: [10, 20, 30, 40, 50, 60, 70, 80, 90, 100],
-      fillUpOrder: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
-      connection: [-1, -1, -1, -1, -1, -1, {lineId: 4, stationId: 3}, -1, -1, -1],
+      fillUpOrder: [0, 1, 6, 3, 4, 5, 2, 7, 8, 9],
+      connection: [null, null, null, null, null, null, {lineId: 4, stationId: 3}, null, null, null],
     },
     {
       id: 3,
@@ -46,7 +46,7 @@ export class CoordinatesService {
       x: [10, 20, 30, 40, 50, 60, 70, 80, 90, 100],
       y: [10, 20, 30, 40, 50, 60, 70, 80, 90, 100],
       fillUpOrder: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
-      connection: [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1],
+      connection: [null, null, null, null, null, null, null, null, null, null],
     },
     {
       id: 4,
@@ -54,7 +54,7 @@ export class CoordinatesService {
       x: [10, 10, 20, 30, 40, 50, 50, 60, 70, 80],
       y: [100, 90, 80, 70, 60, 50, 40, 30, 20, 10],
       fillUpOrder: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
-      connection: [-1, -1, -1, {lineId: 2, stationId: 6}, -1, -1, -1, -1, -1, -1],
+      connection: [null, null, null, {lineId: 2, stationId: 6}, null, null, null, null, null, null],
     },
     {
       id: 5,
@@ -62,7 +62,7 @@ export class CoordinatesService {
       x: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
       y: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
       fillUpOrder: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
-      connection: [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1],
+      connection: [null, null, null, null, null, null, null, null, null, null],
     },
     {
       id: 6,
@@ -70,7 +70,7 @@ export class CoordinatesService {
       x: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
       y: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
       fillUpOrder: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
-      connection: [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1],
+      connection: [null, null, null, null, null, null, null, null, null, null],
     },
     {
       id: 7,
@@ -78,7 +78,7 @@ export class CoordinatesService {
       x: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
       y: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
       fillUpOrder: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
-      connection: [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1],
+      connection: [null, null, null, null, null, null, null, null, null, null],
     },
     {
       id: 8,
@@ -86,7 +86,7 @@ export class CoordinatesService {
       x: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
       y: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
       fillUpOrder: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
-      connection: [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1],
+      connection: [null, null, null, null, null, null, null, null, null, null],
     },
     {
       id: 9,
@@ -94,7 +94,7 @@ export class CoordinatesService {
       x: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
       y: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
       fillUpOrder: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
-      connection: [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1],
+      connection: [null, null, null, null, null, null, null, null, null, null],
     },
   ]
 
@@ -131,6 +131,7 @@ export class CoordinatesService {
           graduateProgramId: null,
           x: this.defaultLines[i].x[j],
           y: this.defaultLines[i].y[j],
+          connection: this.defaultLines[i].connection[j]
         }
         // Push the station into the stations array
         stations.push(tempStation);

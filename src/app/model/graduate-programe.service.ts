@@ -14,11 +14,23 @@ export class GraduateProgramService {
 
   constructor(private httpClient: HttpClient) {}
 
-  getFaculties(): Observable<Faculty[]> {
+  getFacultiesAsynchronous(): Observable<Faculty[]> {
     var url = this.env.apiUrl + '/api/faculties/graduateprograms';
     console.log(url);
     return this.httpClient.get<Faculty[]>(url);
   }
+
+  getFacultiesSynchronous(): Promise<any>{
+    return this.getFaculties_helper().toPromise()
+  }
+
+  getFaculties_helper() {
+    var url = this.env.apiUrl + '/api/faculties/graduateprograms';
+    console.log(url);
+    return this.httpClient.get(url);
+  }
+
+  
 
   getFacultyById(id: number): Observable<Faculty[]> {
     var url = this.env.apiUrl + '/api/faculties/' + id + '/graduateprograms';

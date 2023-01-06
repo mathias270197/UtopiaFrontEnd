@@ -98,7 +98,7 @@ export class FormTemplateComponent implements OnInit {
 
   // Get all the faculties and their graduate programs
   async getFaculties() {
-    this.faculties$ = await this.graduateProgramService.getFaculties().subscribe(faculties => {
+    this.faculties$ = await this.graduateProgramService.getFacultiesAsynchronous().subscribe(faculties => {
       this.faculties = faculties;
       console.log('This is the array with the faculties:')
       console.log(this.faculties);

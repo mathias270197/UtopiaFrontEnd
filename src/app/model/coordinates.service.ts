@@ -20,7 +20,7 @@ export class CoordinatesService {
       id: 0,
       color: "red",
       x: [20, 5, 10, 5, 10, 5, 10, 5, 10, 5],
-      y: [10, 10, 20, 30, 40, 50, 60, 70, 80, 90],
+      y: [10, 15, 20, 30, 40, 50, 60, 70, 80, 90],
       fillUpOrder: [5, 1, 0, 6, 8, 2, 4, 7, 3, 9],
       connection: [null, null, null, null, null, null, null, null, null, null],
     },
@@ -170,8 +170,9 @@ export class CoordinatesService {
     console.log(metromap)
 
     this.localStorageService.setLines(lines);
+    this.localStorageService.setMetromap(metromap);
 
-    return metromap
+    // return metromap
 
   }
 

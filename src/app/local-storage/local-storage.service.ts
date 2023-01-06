@@ -67,5 +67,13 @@ export class LocalStorageService {
     // to do
   }
 
+  public setLines(lines: any) {
+    localStorage.setItem("lines", lines);
+  }
+
+  public getLines() {
+    var lines = localStorage.getItem("lines");
+    return lines
+  }
 
 }

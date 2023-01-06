@@ -14,7 +14,7 @@ export class LocalStorageService {
 
   currentUserName: string | null = null;
   personalKey: string | null = null;
-lines: any[]=[];
+  lines: any[]=[];
 
   constructor() { }
 
@@ -76,6 +76,15 @@ lines: any[]=[];
   public getLines() {
     var lines = localStorage.getItem("lines");
     return lines
+  }
+
+  public setMetromap(metromap: string) {
+    localStorage.setItem("metromap", metromap);
+  }
+
+  public getMetromap() {
+    var metromap = localStorage.getItem("metromap");
+    return metromap
   }
 
 }

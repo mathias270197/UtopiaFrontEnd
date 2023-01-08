@@ -88,4 +88,13 @@ export class LocalStorageService {
     return metromap
   }
 
+  public setCurrentFormId(id: number) {
+    localStorage.setItem("currentFormId", id.toString());
+  }
+
+  public getCurrentFormId() {
+    var currentFormId = localStorage.getItem("currentFormId");
+    return currentFormId
+  }
+
 }

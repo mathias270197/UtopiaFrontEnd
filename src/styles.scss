@@ -5,3 +5,22 @@
 @import "node_modules/bootstrap/scss/bootstrap";
 /* Importing Bootstrap SCSS file. */
 @import '~bootstrap/scss/bootstrap';
+
+body {
+    animation-duration: 0.5s;
+    animation-iteration-count: 1;
+    animation-direction: normal;
+    background-color: white;
+}
+
+@keyframes anim-correct {
+    from {
+        background-color: green;
+    }
+}
+
+@keyframes anim-incorrect {
+    from {
+        background-color: red;
+    }
+}

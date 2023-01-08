@@ -112,7 +112,7 @@ export class CoordinatesService {
     // });
 
     // Collect the faculties synchronously 
-    this.faculties = await this.graduateProgramService.getFacultiesSynchronous();
+    this.faculties = await this.graduateProgramService.getFacultiesSync();
     console.log('Faculties array');
     console.log(this.faculties);
     // Initiate the div for the metromap

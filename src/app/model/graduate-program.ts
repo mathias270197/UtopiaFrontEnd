@@ -5,6 +5,6 @@ export interface GraduateProgram {
     name: string;
 	active: boolean;
 	facultyId: number;
-	faculty: number;
+	faculty: any;
 	questions: Question[];
 }

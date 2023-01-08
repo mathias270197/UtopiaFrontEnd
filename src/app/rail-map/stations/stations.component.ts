@@ -24,7 +24,7 @@ export class StationsComponent implements OnInit {
   errorMessage: string = '';
   points: number = 1;
   @Input() safeHtml: SafeHtml = '';
-  metromap: string = '<p>test<p/>';
+  metromap: string = '';
   lines: any = null;
   junk: String = '';
   constructor(private stationService: StationService, private route: ActivatedRoute, 
@@ -35,12 +35,8 @@ export class StationsComponent implements OnInit {
     // this.getStations();
     // this.points = this.pointsService.getPoints();
 
-    // console.log(this.metromap)
     this.getMetroMap();
-    // console.log('Dit is de metromap nadat ze eigenlijk al opgeroepen is.')
-    // console.log(this.metromap)
 
-    
   }
 
   getStations() {
@@ -48,20 +44,22 @@ export class StationsComponent implements OnInit {
   }
 
   async getMetroMap() {
-    this.metromap = await this.coordinatesService.getCoordinates();
-    // this.metromap = temp[0].toString();
-    // this.lines = temp[1];
+    // this.metromap = await this.coordinatesService.getCoordinates();
+    
+    // Calculate the lines and coordinates
+    await this.coordinatesService.getCoordinates();
 
-    console.log('Returned metromap:')
-    console.log(this.metromap)
+    // Fetch the metromap from the local storage
+    this.metromap = this.localStorageService.getMetromap()!;
+    // console.log('Returned metromap:')
+    // console.log(this.metromap)
+    // Convert it to a safe html injectable string
     this.safeHtml = this.sanitizer.bypassSecurityTrustHtml(this.metromap);
-    this.getLines();
-  }
 
-  getLines() {
+    // Fetch the lines from the local storage
     this.lines = this.localStorageService.getLines();
-    console.log('Dit zijn de lines na ophalen uit local storage');
-    console.log(this.lines)
-  };
+    // console.log('Dit zijn de lines na ophalen uit local storage');
+    // console.log(this.lines)
+  }
 
 }

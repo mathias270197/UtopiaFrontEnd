@@ -9,6 +9,8 @@ import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { LocalStorageService } from 'src/app/local-storage/local-storage.service';
 import { MetrolineService } from 'src/app/metroline/metroline.service';
 import { MetrolineComponent } from 'src/app/metroline/metroline/metroline.component';
+import { GraduateProgram } from 'src/app/model/graduate-program';
+import { GraduateProgramService } from 'src/app/model/graduate-programe.service';
 
 
 @Component({
@@ -26,17 +28,21 @@ export class StationsComponent implements OnInit {
   @Input() safeHtml: SafeHtml = '';
   metromap: string = '';
   lines: any = null;
+  graduatePrograms: GraduateProgram[] = [];
+  neighborhoodIds: number[] = [];
+  activeStationId: number = 0;
   junk: String = '';
   constructor(private stationService: StationService, private route: ActivatedRoute, 
     private pointsService: PointsService, private coordinatesService: CoordinatesService,private metroLineService: MetrolineService,
-    private sanitizer: DomSanitizer, private localStorageService: LocalStorageService) { }
+    private sanitizer: DomSanitizer, private localStorageService: LocalStorageService,
+    private graduateProgramService: GraduateProgramService) { }
 
   ngOnInit(): void {
     // this.getStations();
     // this.points = this.pointsService.getPoints();
 
     this.getMetroMap();
-
+    
   }
 
   // getStations() {
@@ -44,22 +50,16 @@ export class StationsComponent implements OnInit {
   // }
 
   async getMetroMap() {
-    // this.metromap = await this.coordinatesService.getCoordinates();
-    
     // Calculate the lines and coordinates
     await this.coordinatesService.getCoordinates();
-
     // Fetch the metromap from the local storage
     this.metromap = this.localStorageService.getMetromap()!;
-    // console.log('Returned metromap:')
-    // console.log(this.metromap)
     // Convert it to a safe html injectable string
     this.safeHtml = this.sanitizer.bypassSecurityTrustHtml(this.metromap);
-
     // Fetch the lines from the local storage
     this.lines = this.localStorageService.getLines();
-    // console.log('Dit zijn de lines na ophalen uit local storage');
-    // console.log(this.lines)
   }
+
+
 
 }

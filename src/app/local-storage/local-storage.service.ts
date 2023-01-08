@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Person } from '../login/person';
+import { Faculty } from '../model/faculty';
+import { GraduateProgram } from '../model/graduate-program';
 
 
 @Injectable({
@@ -14,8 +16,7 @@ export class LocalStorageService {
 
   currentUserName: string | null = null;
   personalKey: string | null = null;
-
-  lines: any[]=[];
+  lines: any[] = [];
 
   constructor() { }
 
@@ -70,12 +71,12 @@ export class LocalStorageService {
   }
 
   public setLines(lines: any) {
-    lines =  JSON.stringify(lines);
+    lines=JSON.stringify(lines);
     localStorage.setItem("lines", lines);
   }
 
   public getLines() {
-    var lines = JSON.parse(localStorage.getItem("lines")|| '{}');
+    var lines = localStorage.getItem("lines");
     return lines
   }
 
@@ -95,6 +96,44 @@ export class LocalStorageService {
   public getCurrentFormId() {
     var currentFormId = localStorage.getItem("currentFormId");
     return currentFormId
+  }
+
+  public setNeighborhoodIds(ids: number[]) {
+    localStorage.setItem("neighborhoodIds", ids.toString());
+  }
+
+  public getNeighborhoodIds() {
+    var neighborhoodIds = localStorage.getItem("neighborhoodIds");
+    return neighborhoodIds
+  }
+
+  public setActiveStationId(id: number) {
+    localStorage.setItem("activeStation", id.toString());
+  }
+
+  public getActiveStationId() {
+    var activeStation = localStorage.getItem("activeStation");
+    return activeStation
+  }
+
+  public setGraduatePrograms(graduatePrograms: GraduateProgram[]) {
+    let graduatePrograms_temp = JSON.stringify(graduatePrograms);
+    localStorage.setItem("graduatePrograms", graduatePrograms_temp);
+  }
+
+  public getGraduatePrograms() {
+    var activeStation = localStorage.getItem("graduatePrograms");
+    return activeStation
+  }
+
+  public setFaculties(faculties: Faculty[]) {
+    let faculties_temp = JSON.stringify(faculties);
+    localStorage.setItem("faculties", faculties_temp);
+  }
+
+  public getFaculties() {
+    var faculties = localStorage.getItem("faculties");
+    return faculties
   }
 
 }

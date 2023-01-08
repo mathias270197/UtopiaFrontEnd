@@ -39,9 +39,9 @@ export class StationsComponent implements OnInit {
 
   }
 
-  getStations() {
-    this.stations$ = this.stationService.getStations().subscribe(result => this.stations = result, err => this.errorMessage = err);
-  }
+  // getStations() {
+  //   this.stations$ = this.stationService.getStations().subscribe(result => this.stations = result, err => this.errorMessage = err);
+  // }
 
   async getMetroMap() {
     // this.metromap = await this.coordinatesService.getCoordinates();

@@ -12,7 +12,7 @@ export class GraduateProgramService {
 
   private env = environment;
 
-  constructor(private httpClient: HttpClient) {}
+  constructor(private httpClient: HttpClient) { }
 
   // Get the faculties with graduate programs ASYNC
   getFacultiesAsync(): Observable<Faculty[]> {
@@ -22,7 +22,7 @@ export class GraduateProgramService {
   }
 
   // Get the faculties with graduate programs SYNC
-  getFacultiesSync(): Promise<any>{
+  getFacultiesSync(): Promise<any> {
     return this.getFacultiesSync_helper().toPromise()
   }
   getFacultiesSync_helper() {
@@ -31,7 +31,7 @@ export class GraduateProgramService {
     return this.httpClient.get(url);
   }
 
-  
+
   // Get one faculty with graduate programs ASYNC
   getFacultyById(id: number): Observable<Faculty[]> {
     var url = this.env.apiUrl + '/api/faculties/' + id + '/graduateprograms';
@@ -47,15 +47,15 @@ export class GraduateProgramService {
   }
 
 
-    // Get the faculties with graduate programs SYNC
-    getGraduateProgramsSync(): Promise<any>{
-      return this.getFacultiesSync_helper().toPromise()
-    }
-    getGraduateProgramsSync_helper() {
-      var url = this.env.apiUrl + '/api/graduateprograms';
-      console.log(url);
-      return this.httpClient.get(url);
-    }
-  
+  // Get the faculties with graduate programs SYNC
+  getGraduateProgramsSync(): Promise<any> {
+    return this.getGraduateProgramsSync_helper().toPromise()
+  }
+  getGraduateProgramsSync_helper() {
+    var url = this.env.apiUrl + '/api/graduateprograms';
+    console.log(url);
+    return this.httpClient.get(url);
+  }
+
 
 }

@@ -4,5 +4,5 @@ export interface MultipleChoiceAnswer {
 	active: boolean;
     correct: boolean;
 	questionId: number;
-	answers: number;
+	answers: any;
 }

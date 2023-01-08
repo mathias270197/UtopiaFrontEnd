@@ -1,19 +1,29 @@
-<!-- <div class="container">
+<div class="container">
     <div class="row">
         <p class="col-6">{{graduateProgram.name}}</p>
         <p class="col-6 text-end">{{timeLeft}}</p>
-            <div class="loadingbar btn-secondary launch-btn" [style.background]="progressStyle">
-            </div>
+        <div class="loadingbar btn-secondary launch-btn" [style.background]="progressStyle">
+        </div>
 
     </div>
-    <div class="text-center">
+    <div class="text-center mt-3">
         <h3>Vraag nr {{currentQuestion.id}}/{{graduateProgram.questions.length}}</h3>
-        <p>{{currentQuestion.question}}</p>
-        <div *ngFor="let answer of currentQuestion.answers">
-            <button class="answer-btn btn btn-info"
-                (click)="addAnswer(currentQuestion.id, answer.id)">{{answer.answer}}</button>
+        <p>{{currentQuestion.textualQuestion}}</p>
+        <div *ngFor="let answer of currentQuestion.multipleChoiceAnswers">
+            <button id="" class="answer-btn btn btn-primary" [disabled]="disabled"
+                (click)="addAnswer(currentQuestion.id, answer.id, answer.correct)">{{answer.textualAnswer}}</button>
         </div>
     </div>
-</div> -->
 
-test
+    <div class="text-center" [ngClass]="gameFinished ? '' : 'd-none'">
+        <div id="no-escape" class="mt-5" [ngClass]="hasEscaped ? 'd-none' : ''">
+            <p>Helaas! Het is je niet gelukt om te ontsnappen!</p>
+            <button (click)="retry()">Probeer opnieuw</button>
+        </div>
+
+        <div id="escape" class="mt-5" [ngClass]="hasEscaped ? '' : 'd-none'">
+            <p>Proficiat! Het is je gelukt om te ontsnappen!</p>
+            <button (click)="retry()">Terug naar de metro</button>
+        </div>
+    </div>
+</div>

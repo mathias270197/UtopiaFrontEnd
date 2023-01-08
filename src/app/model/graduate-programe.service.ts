@@ -14,30 +14,32 @@ export class GraduateProgramService {
 
   constructor(private httpClient: HttpClient) {}
 
-  getFacultiesAsynchronous(): Observable<Faculty[]> {
+  // Get the faculties with graduate programs ASYNC
+  getFacultiesAsync(): Observable<Faculty[]> {
     var url = this.env.apiUrl + '/api/faculties/graduateprograms';
     console.log(url);
     return this.httpClient.get<Faculty[]>(url);
   }
 
-  getFacultiesSynchronous(): Promise<any>{
-    return this.getFaculties_helper().toPromise()
+  // Get the faculties with graduate programs SYNC
+  getFacultiesSync(): Promise<any>{
+    return this.getFacultiesSync_helper().toPromise()
   }
-
-  getFaculties_helper() {
+  getFacultiesSync_helper() {
     var url = this.env.apiUrl + '/api/faculties/graduateprograms';
     console.log(url);
     return this.httpClient.get(url);
   }
 
   
-
+  // Get one faculty with graduate programs ASYNC
   getFacultyById(id: number): Observable<Faculty[]> {
     var url = this.env.apiUrl + '/api/faculties/' + id + '/graduateprograms';
     console.log(url);
     return this.httpClient.get<Faculty[]>(url);
   }
 
+  // Get one graduate program with questions and multiplechoice ansers ASYNC
   getGraduateProgramById(id: number): Observable<GraduateProgram[]> {
     var url = this.env.apiUrl + '/api/graduateprograms/' + id + '/multiplechoiceanswers';
     console.log(url);

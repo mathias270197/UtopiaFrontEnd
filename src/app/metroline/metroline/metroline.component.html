@@ -1,0 +1,10 @@
+<p>metroline works!</p>
+<div>{{activeline.color}}</div>
+<table class="table" >
+ 
+<tr *ngFor="let st of graduatePrograms">
+    <td  bgColor={{activeline.color}} [width]="12">o</td>
+<td >{{st.graduateProgramId }}</td>
+<td *ngIf="st.connection != null" bgColor={{lines[st.connection.lineId].color}}> {{lines[st.connection.lineId].color}}</td>
+</tr>
+</table>

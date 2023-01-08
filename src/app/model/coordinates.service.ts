@@ -38,7 +38,7 @@ export class CoordinatesService {
       x: [30, 30, 30, 30, 30, 30, 30, 30, 30, 30],
       y: [10, 20, 30, 40, 50, 60, 70, 80, 90, 100],
       fillUpOrder: [0, 1, 6, 3, 4, 5, 2, 7, 8, 9],
-      connection: [null, null, null, null, null, null, {lineId: 4, stationId: 3}, null, null, null],
+      connection: [null, null,{lineId: 3, stationId: 3} , null, null, null, {lineId: 4, stationId: 3}, null, null, null],
     },
     {
       id: 3,

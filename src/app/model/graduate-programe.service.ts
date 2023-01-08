@@ -46,4 +46,16 @@ export class GraduateProgramService {
     return this.httpClient.get<GraduateProgram[]>(url);
   }
 
+
+    // Get the faculties with graduate programs SYNC
+    getGraduateProgramsSync(): Promise<any>{
+      return this.getFacultiesSync_helper().toPromise()
+    }
+    getGraduateProgramsSync_helper() {
+      var url = this.env.apiUrl + '/api/graduateprograms';
+      console.log(url);
+      return this.httpClient.get(url);
+    }
+  
+
 }

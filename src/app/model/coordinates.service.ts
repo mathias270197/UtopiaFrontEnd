@@ -129,6 +129,7 @@ export class CoordinatesService {
         // Set the template for this station, including a null for the graduateProgramId
         let tempStation = {
           graduateProgramId: null,
+          name: null,
           x: this.defaultLines[i].x[j],
           y: this.defaultLines[i].y[j],
           connection: this.defaultLines[i].connection[j]
@@ -148,6 +149,8 @@ export class CoordinatesService {
         let next = this.defaultLines[i].fillUpOrder[k];
         // Put the graduateProgramId into that specific station
         stations[next].graduateProgramId = this.faculties[i].graduatePrograms[k].id;
+        // Add the name to the station
+        stations[next].name = this.faculties[i].graduatePrograms[k].name;
         // Insert the visible station in the metromap
         metromap += '<circle id="gp_id_' + this.faculties[i].graduatePrograms[k].id + '" class="station" cx="' + this.defaultLines[i].x[next] + '" cy="' + this.defaultLines[i].y[next] +'" r="2" stroke-width="1" fill="white" />'
       }

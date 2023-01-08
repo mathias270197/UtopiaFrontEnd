@@ -7,6 +7,8 @@ import { PointsService } from 'src/app/points/points.service';
 import { CoordinatesService } from 'src/app/model/coordinates.service';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { LocalStorageService } from 'src/app/local-storage/local-storage.service';
+import { MetrolineService } from 'src/app/metroline/metroline.service';
+import { MetrolineComponent } from 'src/app/metroline/metroline/metroline.component';
 
 
 @Component({
@@ -26,7 +28,7 @@ export class StationsComponent implements OnInit {
   lines: any = null;
   junk: String = '';
   constructor(private stationService: StationService, private route: ActivatedRoute, 
-    private pointsService: PointsService, private coordinatesService: CoordinatesService,
+    private pointsService: PointsService, private coordinatesService: CoordinatesService,private metroLineService: MetrolineService,
     private sanitizer: DomSanitizer, private localStorageService: LocalStorageService) { }
 
   ngOnInit(): void {
@@ -34,6 +36,7 @@ export class StationsComponent implements OnInit {
     // this.points = this.pointsService.getPoints();
 
     this.getMetroMap();
+
   }
 
   getStations() {

@@ -10,6 +10,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { RailMapModule } from './rail-map/rail-map.module';
 import { PointsModule } from './points/points.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { MetrolineModule } from './metroline/metroline.module';
+
+
 
 
 
@@ -17,6 +20,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
   declarations: [
     AppComponent,
     FormTemplateComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -26,6 +30,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     HttpClientModule,
     PointsModule,
     NgbModule,
+    MetrolineModule,
+ 
   ],
   providers: [],
   bootstrap: [AppComponent]

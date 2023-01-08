@@ -9,15 +9,19 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 
+
 @NgModule({
   declarations: [
     StationsComponent,
     StationComponent,
     NeighbourhoodComponent,
+  
+   
   ],
   imports: [
     CommonModule,
     NgbModule,
+   
   ],
   schemas:[
     CUSTOM_ELEMENTS_SCHEMA,

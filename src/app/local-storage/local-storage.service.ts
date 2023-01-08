@@ -14,6 +14,7 @@ export class LocalStorageService {
 
   currentUserName: string | null = null;
   personalKey: string | null = null;
+
   lines: any[]=[];
 
   constructor() { }
@@ -69,12 +70,12 @@ export class LocalStorageService {
   }
 
   public setLines(lines: any) {
-    lines=JSON.stringify(lines);
+    lines =  JSON.stringify(lines);
     localStorage.setItem("lines", lines);
   }
 
   public getLines() {
-    var lines = localStorage.getItem("lines");
+    var lines = JSON.parse(localStorage.getItem("lines")|| '{}');
     return lines
   }
 

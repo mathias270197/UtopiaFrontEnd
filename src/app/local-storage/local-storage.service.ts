@@ -76,7 +76,7 @@ export class LocalStorageService {
   }
 
   public getLines() {
-    var lines = localStorage.getItem("lines");
+    var lines = JSON.parse(localStorage.getItem("lines")|| '{}');
     return lines
   }
 
@@ -132,8 +132,16 @@ export class LocalStorageService {
   }
 
   public getFaculties() {
-    var faculties = localStorage.getItem("faculties");
+    var faculties = JSON.parse(localStorage.getItem("faculties") || '{}');
     return faculties
+  }
+
+  public setCurrentLine(id: number){
+    localStorage.setItem("currentLine", id.toString());
+  }
+  public getCurrentLine() {
+    var currentLine = parseInt(localStorage.getItem("currentLine")||'');
+    return currentLine
   }
 
 }

@@ -5,6 +5,7 @@ import { LocalStorageService } from 'src/app/local-storage/local-storage.service
 import { GraduateProgramService } from 'src/app/model/graduate-programe.service';
 import { MetrolineService } from '../metroline.service';
 
+
 @Component({
   selector: 'app-metroline',
   templateUrl: './metroline.component.html',
@@ -16,18 +17,23 @@ activeline:any = [];
 stations:any = [];
 graduatePrograms: any = [] ;
 gp:any;
-al=1;
+al=2;
+faculties:any = [];
 
 
 
 
-  constructor(private router: Router,private metroLineService: MetrolineService, private graduteProgramService: GraduateProgramService) { }
+  constructor(private router: Router,private metroLineService: MetrolineService, private graduteProgramService: GraduateProgramService,
+    private localStorageService: LocalStorageService) { }
 
   async ngOnInit(): Promise<void> {
     
-
+    this.al =this.localStorageService.getCurrentLine();
+   
     this.lines =this.metroLineService.getLines();
     console.log('lijnen', this.lines)
+    this.faculties = this.localStorageService.getFaculties();
+    console.log('faculties',this.faculties)
 
     this.activeline = this.lines[this.al]
     console.log('al',this.activeline)
@@ -49,6 +55,13 @@ if (tempOp.graduateProgramId !=null){
  
   }
  
+changeLine(id: number) :void{
+this.localStorageService.setCurrentLine(id)
+console.log(id);
+this.router.routeReuseStrategy.shouldReuseRoute = () => false;
+this.router.navigate(['line'])
 
-
+console.log('click')
 }
+}
+

@@ -45,6 +45,7 @@ export class LoginComponent implements OnInit, OnDestroy {
 
     this.localStorageService.setActiveStationId(0);
     this.localStorageService.setNeighborhoodIds([]);
+    this.localStorageService.setCurrentLine(2);
   }
 
 }

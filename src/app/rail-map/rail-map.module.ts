@@ -5,6 +5,7 @@ import { StationComponent } from './station/station.component';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NeighbourhoodComponent } from './neighbourhood/neighbourhood.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { MetrolineComponent } from '../metroline/metroline/metroline.component';
 
 
 
@@ -15,6 +16,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     StationsComponent,
     StationComponent,
     NeighbourhoodComponent,
+    MetrolineComponent
   
    
   ],

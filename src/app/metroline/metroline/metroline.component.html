@@ -1,10 +1,10 @@
 <p>metroline works!</p>
 <div>{{faculties[activeline.lineId-1].name}}</div>
-<table class="table" >
- 
-<tr *ngFor="let st of graduatePrograms">
-    <td  bgColor={{activeline.color}} >o</td>
-<td >{{st.name }}</td>
-<td   *ngIf="st.connection != null" bgColor={{lines[st.connection.lineId].color}} (click)="changeLine(st.connection.lineId)" >  {{faculties[st.connection.lineId-1].name}}</td>
-</tr>
+<table class="table">
+    <tr *ngFor="let st of graduatePrograms">
+        <td bgColor={{activeline.color}}>o</td>
+        <td (click)="goToForm(st.graduateProgramId)">{{st.name }}</td>
+        <td *ngIf="st.connection != null" bgColor={{lines[st.connection.lineId].color}}
+            (click)="changeLine(st.connection.lineId)"> {{faculties[st.connection.lineId-1].name}}</td>
+    </tr>
 </table>

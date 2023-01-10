@@ -58,9 +58,12 @@ if (tempOp.graduateProgramId !=null){
 changeLine(id: number) :void{
 this.localStorageService.setCurrentLine(id)
 console.log(id);
-this.router.routeReuseStrategy.shouldReuseRoute = () => false;
-this.router.navigate(['line'])
-
+// this.router.routeReuseStrategy.shouldReuseRoute = () => false;
+// this.router.navigate(['line'])
+let currentUrl = this.router.url;
+this.router.navigateByUrl('/', {skipLocationChange: true}).then(() => {
+this.router.navigate([currentUrl]);
+});
 console.log('click')
 }
 }

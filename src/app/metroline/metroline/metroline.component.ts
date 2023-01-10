@@ -12,49 +12,52 @@ import { MetrolineService } from '../metroline.service';
   styleUrls: ['./metroline.component.scss']
 })
 export class MetrolineComponent implements OnInit {
-lines : any = null;
-activeline:any = [];
-stations:any = [];
-graduatePrograms: any = [] ;
-gp:any;
-al=2;
-faculties:any = [];
+  lines: any = null;
+  activeline: any = [];
+  stations: any = [];
+  graduatePrograms: any = [];
+  gp: any;
+  al = 2;
+  faculties: any = [];
 
 
 
 
 
-  constructor(private router: Router,private metroLineService: MetrolineService, private graduteProgramService: GraduateProgramService,
+  constructor(private router: Router, private metroLineService: MetrolineService, private graduteProgramService: GraduateProgramService,
     private localStorageService: LocalStorageService) { }
 
   async ngOnInit(): Promise<void> {
-    
-    this.al =this.localStorageService.getCurrentLine();
-   
-    this.lines =this.metroLineService.getLines();
+
+    this.al = this.localStorageService.getCurrentLine();
+
+    this.lines = this.metroLineService.getLines();
     console.log('lijnen', this.lines)
     this.faculties = this.localStorageService.getFaculties();
-    console.log('faculties',this.faculties)
+    console.log('faculties', this.faculties)
 
     this.activeline = this.lines[this.al]
-    console.log('al',this.activeline)
+    console.log('al', this.activeline)
     this.stations = this.lines[this.al].stations
     console.log(this.stations)
 
     console.log
-for (let i = 0; i< this.lines[this.al].stations.length; i++){
-let tempOp = this.lines[this.al].stations[i];
-if (tempOp.graduateProgramId !=null){
-  this.graduatePrograms.push(tempOp)
-}
+    for (let i = 0; i < this.lines[this.al].stations.length; i++) {
+      let tempOp = this.lines[this.al].stations[i];
+      if (tempOp.graduateProgramId != null) {
+        this.graduatePrograms.push(tempOp)
+      }
 
-}
-
-
+    }
     console.log('opl', this.graduatePrograms)
-
- 
   }
+
+  goToForm(graduateProgramId: number) {
+    console.log('Going to form with id: ' + graduateProgramId);
+    this.localStorageService.setActiveStationId(graduateProgramId);
+    this.router.navigateByUrl("/form")
+  }
+
  
 changeLine(id: number) :void{
 this.localStorageService.setCurrentLine(id)
@@ -73,6 +76,7 @@ this.ngOnInit();
 //   this.router.navigate(['/form'],{ state: {firstBuildingId: gpId} } );
 //   console.log("go to questions of building with ID: " + gpId);
 // }
+
 }
 
 

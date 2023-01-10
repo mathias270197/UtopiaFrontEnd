@@ -78,6 +78,8 @@ export class FormTemplateComponent implements OnInit {
   correctAnswerCounter: number = 0;
   // Questions answered
   questionsAnswered: number = 0;
+  // Question display index
+  questionDisplayIndex: number = 1;
   // Enable/disable the answer buttons
   disabled: boolean = false;
   //
@@ -108,11 +110,12 @@ export class FormTemplateComponent implements OnInit {
     this.answerArray = [];
     this.correctAnswerCounter = 0;
     this.questionsAnswered = 0;
+    this.questionDisplayIndex = 1;
     this.disabled = false;
     this.gameFinished = false;
     this.hasEscaped = false;
     clearInterval(this.interval);
-    let currentFormId = Number(this.localStorage.getCurrentFormId());
+    let currentFormId = Number(this.localStorage.getActiveStationId());
     this.getGraduateProgramById(currentFormId);
   }
 
@@ -193,7 +196,9 @@ export class FormTemplateComponent implements OnInit {
     } else {
       this.nextQuestionIndex += 1;
       this.getNextQuestion(this.nextQuestionIndex);
+      this.questionDisplayIndex += 1;
     }
+    
   }
 
   // Initiate the timer
@@ -236,6 +241,10 @@ export class FormTemplateComponent implements OnInit {
     } else {
 
     }
+  }
+
+  goBack() {
+    this.router.navigateByUrl("/stations")
   }
 
 }

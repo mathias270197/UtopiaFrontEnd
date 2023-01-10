@@ -7,7 +7,7 @@
 
     </div>
     <div class="text-center mt-3">
-        <h3>Vraag nr {{currentQuestion.id}}/{{graduateProgram.questions.length}}</h3>
+        <h3>Vraag nr {{questionDisplayIndex}}/{{graduateProgram.questions.length}}</h3>
         <p>{{currentQuestion.textualQuestion}}</p>
         <div *ngFor="let answer of currentQuestion.multipleChoiceAnswers">
             <button id="" class="answer-btn btn btn-primary" [disabled]="disabled"
@@ -23,7 +23,10 @@
 
         <div id="escape" class="mt-5" [ngClass]="hasEscaped ? '' : 'd-none'">
             <p>Proficiat! Het is je gelukt om te ontsnappen!</p>
-            <button (click)="retry()">Terug naar de metro</button>
+        </div>
+
+        <div class="mt-5">
+            <button (click)="goBack()">Terug naar de metro</button>
         </div>
     </div>
 </div>

@@ -11,6 +11,7 @@ import { MetrolineService } from 'src/app/metroline/metroline.service';
 import { MetrolineComponent } from 'src/app/metroline/metroline/metroline.component';
 import { GraduateProgram } from 'src/app/model/graduate-program';
 import { GraduateProgramService } from 'src/app/model/graduate-programe.service';
+import { MetrolineModule } from 'src/app/metroline/metroline.module';
 
 
 @Component({

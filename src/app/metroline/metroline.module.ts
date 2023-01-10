@@ -8,13 +8,13 @@ import { MetrolineService } from './metroline.service';
 
 @NgModule({
   declarations: [
-  MetrolineComponent
+  // MetrolineComponent
   ],
   imports: [
     CommonModule
   ],
   exports: [
-    MetrolineComponent,
+    // MetrolineComponent,
   ],
   providers:[
     MetrolineService

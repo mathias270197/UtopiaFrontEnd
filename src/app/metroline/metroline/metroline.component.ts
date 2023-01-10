@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { NavigationEnd, Router } from '@angular/router';
 import { getMaxListeners } from 'process';
 import { LocalStorageService } from 'src/app/local-storage/local-storage.service';
 import { GraduateProgramService } from 'src/app/model/graduate-programe.service';
@@ -19,6 +19,7 @@ export class MetrolineComponent implements OnInit {
   gp: any;
   al = 2;
   faculties: any = [];
+
 
 
 
@@ -51,19 +52,33 @@ export class MetrolineComponent implements OnInit {
     console.log('opl', this.graduatePrograms)
   }
 
-  changeLine(id: number): void {
-    this.localStorageService.setCurrentLine(id)
-    console.log(id);
-    this.router.routeReuseStrategy.shouldReuseRoute = () => false;
-    this.ngOnInit();
-
-    console.log('click')
-  }
-
   goToForm(graduateProgramId: number) {
     console.log('Going to form with id: ' + graduateProgramId);
     this.localStorageService.setActiveStationId(graduateProgramId);
     this.router.navigateByUrl("/form")
   }
+
+ 
+changeLine(id: number) :void{
+this.localStorageService.setCurrentLine(id)
+console.log(id);
+this.graduatePrograms = [];
+// this.router.routeReuseStrategy.shouldReuseRoute = () => false;
+// this.router.navigate(['line'])
+// let currentUrl = this.router.url;
+// this.router.navigateByUrl('/', {skipLocationChange: true}).then(() => {
+// this.router.navigate([currentUrl]);
+// });
+this.ngOnInit();
 }
+// NavigateToForm(gpId: number) {
+//   this.localStorageService.setCurrentFormId(gpId)
+//   this.router.navigate(['/form'],{ state: {firstBuildingId: gpId} } );
+//   console.log("go to questions of building with ID: " + gpId);
+// }
+
+}
+
+
+
 

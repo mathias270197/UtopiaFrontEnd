@@ -17,7 +17,7 @@ export class MetrolineComponent implements OnInit {
   stations: any = [];
   graduatePrograms: any = [];
   gp: any;
-  activeLineID = 2;
+  activeLineID =2;
   faculties: any = [];
   activeStationColor: string = "red";
   activeStationId: number = 0;
@@ -38,10 +38,11 @@ export class MetrolineComponent implements OnInit {
     this.activeStationId = Number(this.localStorageService.getActiveStationId());
     // Determine on which line it is located
     this.lines = this.metroLineService.getLines();
-    console.log('lijnen', this.lines)
+    console.log('lines', this.lines)
     this.faculties = this.localStorageService.getFaculties();
     console.log('faculties', this.faculties)
-    this.activeLineID = this.getLine();
+    if(this.localStorageService.getCurrentLine() ==1){
+    this.activeLineID = this.getLine();}
     this.localStorageService.setCurrentLine(this.activeLineID);
     // Get the completed stations
     this.completedStations = this.localStorageService.getCompletedStations();
@@ -138,8 +139,22 @@ export class MetrolineComponent implements OnInit {
 
 
   changeLine(id: number): void {
-    this.localStorageService.setCurrentLine(id)
-    console.log(id);
+    
+    // get the current position of the active station in order to be able to get the connection to the crossing line
+    let currentId =0;
+    for(let i=0; i<this.graduatePrograms.length;i++){
+      if(this.graduatePrograms[i].graduateProgramId == this.activeStationId){
+        currentId = i;
+      }
+    }             
+    // let station = this.graduatePrograms[currentId].connection.stationId
+    // 
+    this.localStorageService.setCurrentLine(99)
+   //change the activelineId to the choosen line id.
+    this.activeLineID = id;
+    // set the active station id to the id of the station of the new choosen line
+    this.localStorageService.setActiveStationId (this.lines[this.activeLineID].stations[this.graduatePrograms[currentId].connection.stationId].graduateProgramId)
+    // Empty the graduteprograms array before reloading the component
     this.graduatePrograms = [];
     this.ngOnInit();
   }

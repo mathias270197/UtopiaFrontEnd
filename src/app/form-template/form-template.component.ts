@@ -254,6 +254,7 @@ export class FormTemplateComponent implements OnInit {
   }
 
   goBack() {
+    this.localStorageService.setCurrentLine(1)
     this.router.navigateByUrl("/stations")
   }
 

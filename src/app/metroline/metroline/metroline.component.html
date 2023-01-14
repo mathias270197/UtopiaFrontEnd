@@ -3,8 +3,10 @@
 <table class="table">
     <tr *ngFor="let st of graduatePrograms">
         <td bgColor={{activeline.color}}>o</td>
-        <td (click)="goToForm(st.graduateProgramId)">{{st.name }}</td>
-        <td *ngIf="st.connection != null" bgColor={{lines[st.connection.lineId].color}}
-            (click)="changeLine(st.connection.lineId)"> {{faculties[st.connection.lineId-1].name}}</td>
+        <td  (click)="goToForm(st.graduateProgramId)" >{{st.name }}</td>
+        <td *ngIf="st.connection != null" bgColor={{lines[st.connection.lineId].color}} >
+           {{faculties[st.connection.lineId-1].name}}</td>
+            <td *ngIf="st.connection != null && st.graduateProgramId == activeStationId" bgColor={{lines[st.connection.lineId].color}}
+            (click)="changeLine(st.connection.lineId)"> Switch Line</td>
     </tr>
 </table>

@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable} from '@angular/core';
 import { Person } from '../login/person';
 import { Faculty } from '../model/faculty';
 import { GraduateProgram } from '../model/graduate-program';

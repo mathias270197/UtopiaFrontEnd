@@ -59,6 +59,8 @@ export class StationsComponent implements OnInit {
     this.safeHtml = this.sanitizer.bypassSecurityTrustHtml(this.metromap);
     // Fetch the lines from the local storage
     this.lines = this.localStorageService.getLines();
+    // Fetch the active stationId
+    this.activeStationId = Number(this.localStorageService.getActiveStationId());
   }
 
 

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Renderer2 } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 import { getMaxListeners } from 'process';
 import { LocalStorageService } from 'src/app/local-storage/local-storage.service';
@@ -17,33 +17,47 @@ export class MetrolineComponent implements OnInit {
   stations: any = [];
   graduatePrograms: any = [];
   gp: any;
-  al = 2;
+  activeLineID = 2;
   faculties: any = [];
-
-
-
-
+  activeStationColor: string = "red";
+  activeStationId: number = 0;
+  completedStations: any[] = [];
+  completedStationColor: string = "black";
+  completedStationColorPartion: string = "grey";
+  blinkingDuration: number = 500; // in milliseconds
+  sleep = (blinkingDuration: number) => new Promise(r => setTimeout(r, blinkingDuration));
+  // interval!: NodeJS.Timer;
+  previousActiveStationId: number = 1;
 
   constructor(private router: Router, private metroLineService: MetrolineService, private graduteProgramService: GraduateProgramService,
-    private localStorageService: LocalStorageService) { }
+    private localStorageService: LocalStorageService, private renderer: Renderer2) { }
 
   async ngOnInit(): Promise<void> {
 
-    this.al = this.localStorageService.getCurrentLine();
-
+    // Get the active station
+    this.activeStationId = Number(this.localStorageService.getActiveStationId());
+    // Determine on which line it is located
     this.lines = this.metroLineService.getLines();
     console.log('lijnen', this.lines)
     this.faculties = this.localStorageService.getFaculties();
     console.log('faculties', this.faculties)
+    this.activeLineID = this.getLine();
+    this.localStorageService.setCurrentLine(this.activeLineID);
+    // Get the completed stations
+    this.completedStations = this.localStorageService.getCompletedStations();
+    this.updateStationColors();
 
-    this.activeline = this.lines[this.al]
-    console.log('al', this.activeline)
-    this.stations = this.lines[this.al].stations
+
+
+
+    this.activeline = this.lines[this.activeLineID]
+    console.log('active line', this.activeline)
+    this.stations = this.lines[this.activeLineID].stations
     console.log(this.stations)
 
     console.log
-    for (let i = 0; i < this.lines[this.al].stations.length; i++) {
-      let tempOp = this.lines[this.al].stations[i];
+    for (let i = 0; i < this.lines[this.activeLineID].stations.length; i++) {
+      let tempOp = this.lines[this.activeLineID].stations[i];
       if (tempOp.graduateProgramId != null) {
         this.graduatePrograms.push(tempOp)
       }
@@ -52,30 +66,101 @@ export class MetrolineComponent implements OnInit {
     console.log('opl', this.graduatePrograms)
   }
 
-  goToForm(graduateProgramId: number) {
-    console.log('Going to form with id: ' + graduateProgramId);
-    this.localStorageService.setActiveStationId(graduateProgramId);
+  async goToForm(destinationStationId: number) {
+
+    console.log('Going to form with id: ' + destinationStationId);
+
+    // const span_id = this.renderer.selectRootElement('#gp_' + graduateProgramId);
+    // this.renderer.setAttribute(span_id, 'fill', this.activeStationColor);
+
+    // Get the indexes in the active line between the active station and the destination station
+    let transfer: number[] = [];
+    let destinationStationIndexOnLine = 0;
+    let activeStationIndexOnLine = 0;
+    for (let i = 0; i < this.graduatePrograms.length; i++) {
+      let currentGraduateProgramId = this.graduatePrograms[i].graduateProgramId
+      transfer.push(currentGraduateProgramId)
+      if (currentGraduateProgramId == this.activeStationId) {
+        // Get the position of the active station
+        activeStationIndexOnLine = transfer.length - 1;
+      }
+      if (currentGraduateProgramId == destinationStationId) {
+        // Get the position of the destination station
+        destinationStationIndexOnLine = transfer.length - 1;
+      }
+    }
+    console.log('Index active station : ' + activeStationIndexOnLine);
+    console.log('Index destination station : ' + destinationStationIndexOnLine);
+    // Check if we need to trim and/or reverse the array
+    if (activeStationIndexOnLine < destinationStationIndexOnLine) {
+      transfer = transfer.slice(activeStationIndexOnLine, destinationStationIndexOnLine + 1)
+      console.log('transfer no reverse after slice: ' + transfer);
+    } else {
+      transfer = transfer.slice(destinationStationIndexOnLine, activeStationIndexOnLine + 1).reverse();
+      console.log('transfer with reverse after slice: ' + transfer);
+    }
+    console.log('transfer: ' + transfer);
+    // Loop over the stations in between to go over the line to the destination station
+    for (let i = 0; i < transfer.length; i++) {
+      this.previousActiveStationId = this.activeStationId;
+      this.activeStationId = transfer[i];
+      this.updateStationColors();
+      await this.sleep(this.blinkingDuration);
+      // setTimeout(() => {
+      //   let doNothing = 1;
+      // }, this.blinkingDuration);
+    }
+
+
+
+    this.localStorageService.setActiveStationId(destinationStationId);
     this.router.navigateByUrl("/form")
   }
 
- 
-changeLine(id: number) :void{
-this.localStorageService.setCurrentLine(id)
-console.log(id);
-this.graduatePrograms = [];
-// this.router.routeReuseStrategy.shouldReuseRoute = () => false;
-// this.router.navigate(['line'])
-// let currentUrl = this.router.url;
-// this.router.navigateByUrl('/', {skipLocationChange: true}).then(() => {
-// this.router.navigate([currentUrl]);
-// });
-this.ngOnInit();
-}
-// NavigateToForm(gpId: number) {
-//   this.localStorageService.setCurrentFormId(gpId)
-//   this.router.navigate(['/form'],{ state: {firstBuildingId: gpId} } );
-//   console.log("go to questions of building with ID: " + gpId);
-// }
+  getLine() {
+    let activeLineID = -1;
+    for (let i = 0; i < this.lines.length; i++) {
+      let stations = this.lines[i].stations
+      // console.log('line: ' + i)
+      // console.log('Stations: ' + stations)
+      // console.log('Lengte station: ' + stations.length)
+      for (let j = 0; j < stations.length; j++) {
+        // console.log('Station: ' + j)
+        // console.log('Vergelijking: ' + stations[j].graduateProgramId + ' - ' + this.activeStationId)
+        if (stations[j].graduateProgramId == this.activeStationId) {
+          activeLineID = this.lines[i].lineId;
+          console.log('Nieuwe actieve lijn: ' + activeLineID);
+        }
+      }
+    }
+    return activeLineID
+  }
+
+
+  changeLine(id: number): void {
+    this.localStorageService.setCurrentLine(id)
+    console.log(id);
+    this.graduatePrograms = [];
+    this.ngOnInit();
+  }
+
+  updateStationColors() {
+    // First revert the previous active station 
+    this.updateStationColor(this.previousActiveStationId, 'white');
+    // Update the already completed stations
+    for (let i = 0; i < this.completedStations.length; i++) {
+      this.updateStationColor(this.completedStations[i].graduateProgramId, this.completedStationColor)
+    }
+    // Update the active station color
+    this.updateStationColor(this.activeStationId, this.activeStationColor);
+  }
+
+  updateStationColor(id: number, color: string) {
+    const span_id = this.renderer.selectRootElement('#gp_' + id);
+    this.renderer.setAttribute(span_id, 'fill', color);
+    console.log('Updateting id ' + id + ' with color ' + color);
+  }
+
 
 }
 

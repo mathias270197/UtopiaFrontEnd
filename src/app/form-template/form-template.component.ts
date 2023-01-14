@@ -17,7 +17,7 @@ import { BlockList } from 'net';
 export class FormTemplateComponent implements OnInit {
 
   constructor(private graduateProgramService: GraduateProgramService, private coordinatesService: CoordinatesService, 
-    private renderer: Renderer2, private localStorage: LocalStorageService, private router: Router) {
+    private renderer: Renderer2, private localStorageService: LocalStorageService, private router: Router) {
   }
 
   faculties: Faculty[] = [];
@@ -115,7 +115,7 @@ export class FormTemplateComponent implements OnInit {
     this.gameFinished = false;
     this.hasEscaped = false;
     clearInterval(this.interval);
-    let currentFormId = Number(this.localStorage.getActiveStationId());
+    let currentFormId = Number(this.localStorageService.getActiveStationId());
     this.getGraduateProgramById(currentFormId);
   }
 
@@ -216,7 +216,7 @@ export class FormTemplateComponent implements OnInit {
       }
       perc = ((this.initialTime - this.timeLeft) / this.initialTime) * 100;
       this.colorPalleteIndex = Math.floor(perc / 10);
-      console.log(perc, this.colorPalleteIndex);
+      // console.log(perc, this.colorPalleteIndex);
       currentColorFromPalette = this.colorPalette[this.colorPalleteIndex];
       me.progressStyle = `linear-gradient(to right, #FFFFFF ${perc}%, ${currentColorFromPalette} ${perc}%)`;
     }, 1000)
@@ -227,6 +227,16 @@ export class FormTemplateComponent implements OnInit {
     // Disable the buttons
     this.disabled = true;
     this.showResult()
+    let completedStations: any[] = this.localStorageService.getCompletedStations();
+    console.log('Completed stations: ' + completedStations)
+    completedStations.push(
+      {
+        graduateProgramId: this.graduateProgram.id,
+        score: this.timeLeft,
+      }
+    )
+    this.localStorageService.setCompletedStations(completedStations);
+
   };
 
   retry() {

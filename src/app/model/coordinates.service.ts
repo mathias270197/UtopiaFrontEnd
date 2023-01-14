@@ -152,7 +152,7 @@ export class CoordinatesService {
         // Add the name to the station
         stations[next].name = this.faculties[i].graduatePrograms[k].name;
         // Insert the visible station in the metromap
-        metromap += '<circle id="gp_id_' + this.faculties[i].graduatePrograms[k].id + '" class="station" cx="' + this.defaultLines[i].x[next] + '" cy="' + this.defaultLines[i].y[next] +'" r="2" stroke-width="1" fill="white" />'
+        metromap += '<circle id="gp_' + this.faculties[i].graduatePrograms[k].id + '" class="station" cx="' + this.defaultLines[i].x[next] + '" cy="' + this.defaultLines[i].y[next] +'" r="2" stroke-width="1" fill="white" />'
       }
       // Terminate the visible stations
       metromap += '</g>';
@@ -169,8 +169,8 @@ export class CoordinatesService {
     console.log('Lines: ');
     console.log(lines)
     metromap += '</svg></div>';
-    console.log('Metromap: ');
-    console.log(metromap)
+    // console.log('Metromap: ');
+    // console.log(metromap)
 
     this.localStorageService.setLines(lines);
     this.localStorageService.setMetromap(metromap);

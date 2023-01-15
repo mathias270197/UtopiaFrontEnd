@@ -44,7 +44,7 @@ export class LoginComponent implements OnInit, OnDestroy {
 
     this.localStorageService.setGraduatePrograms(this.graduatePrograms);
     this.localStorageService.setCompletedStations([]);
-    this.localStorageService.setCurrentLine(1);
+    // this.localStorageService.setCurrentLine(1);
 
     this.faculties = await this.graduateProgramService.getFacultiesSync();
     this.localStorageService.setFaculties(this.faculties);

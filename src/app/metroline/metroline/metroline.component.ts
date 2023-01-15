@@ -17,7 +17,7 @@ export class MetrolineComponent implements OnInit {
   stations: any = [];
   graduatePrograms: any = [];
   gp: any;
-  activeLineID =2;
+  activeLineID = 2;
   faculties: any = [];
   activeStationColor: string = "red";
   activeStationId: number = 0;
@@ -26,8 +26,9 @@ export class MetrolineComponent implements OnInit {
   completedStationColorPartion: string = "grey";
   blinkingDuration: number = 500; // in milliseconds
   sleep = (blinkingDuration: number) => new Promise(r => setTimeout(r, blinkingDuration));
-  // interval!: NodeJS.Timer;
-  previousActiveStationId: number = 1;
+  previousActiveStationId: number = 0;
+  connectionGraduateProgramId = 0;
+  previousConnectionGraduateProgramId = 0;
 
   constructor(private router: Router, private metroLineService: MetrolineService, private graduteProgramService: GraduateProgramService,
     private localStorageService: LocalStorageService, private renderer: Renderer2) { }
@@ -41,8 +42,9 @@ export class MetrolineComponent implements OnInit {
     console.log('lines', this.lines)
     this.faculties = this.localStorageService.getFaculties();
     console.log('faculties', this.faculties)
-    if(this.localStorageService.getCurrentLine() ==1){
-    this.activeLineID = this.getLine();}
+    if (this.localStorageService.getCurrentLine() == 1) {
+      this.activeLineID = this.getLine();
+    }
     this.localStorageService.setCurrentLine(this.activeLineID);
     // Get the completed stations
     this.completedStations = this.localStorageService.getCompletedStations();
@@ -70,10 +72,6 @@ export class MetrolineComponent implements OnInit {
   async goToForm(destinationStationId: number) {
 
     console.log('Going to form with id: ' + destinationStationId);
-
-    // const span_id = this.renderer.selectRootElement('#gp_' + graduateProgramId);
-    // this.renderer.setAttribute(span_id, 'fill', this.activeStationColor);
-
     // Get the indexes in the active line between the active station and the destination station
     let transfer: number[] = [];
     let destinationStationIndexOnLine = 0;
@@ -104,15 +102,11 @@ export class MetrolineComponent implements OnInit {
     // Loop over the stations in between to go over the line to the destination station
     for (let i = 0; i < transfer.length; i++) {
       this.previousActiveStationId = this.activeStationId;
+      this.previousConnectionGraduateProgramId = this.connectionGraduateProgramId;
       this.activeStationId = transfer[i];
       this.updateStationColors();
       await this.sleep(this.blinkingDuration);
-      // setTimeout(() => {
-      //   let doNothing = 1;
-      // }, this.blinkingDuration);
     }
-
-
 
     this.localStorageService.setActiveStationId(destinationStationId);
     this.router.navigateByUrl("/form")
@@ -139,41 +133,53 @@ export class MetrolineComponent implements OnInit {
 
 
   changeLine(id: number): void {
-    
+
     // get the current position of the active station in order to be able to get the connection to the crossing line
-    let currentId =0;
-    for(let i=0; i<this.graduatePrograms.length;i++){
-      if(this.graduatePrograms[i].graduateProgramId == this.activeStationId){
+    let currentId = 0;
+    for (let i = 0; i < this.graduatePrograms.length; i++) {
+      if (this.graduatePrograms[i].graduateProgramId == this.activeStationId) {
         currentId = i;
       }
-    }             
+    }
     // let station = this.graduatePrograms[currentId].connection.stationId
     // 
     this.localStorageService.setCurrentLine(99)
-   //change the activelineId to the choosen line id.
+    //change the activelineId to the choosen line id.
     this.activeLineID = id;
     // set the active station id to the id of the station of the new choosen line
-    this.localStorageService.setActiveStationId (this.lines[this.activeLineID].stations[this.graduatePrograms[currentId].connection.stationId].graduateProgramId)
+    this.localStorageService.setActiveStationId(this.lines[this.activeLineID].stations[this.graduatePrograms[currentId].connection.stationId].graduateProgramId)
     // Empty the graduteprograms array before reloading the component
     this.graduatePrograms = [];
     this.ngOnInit();
   }
 
   updateStationColors() {
-    // First revert the previous active station 
+    // First revert the previous active station and connection
+    if (this.previousActiveStationId != 0) {
     this.updateStationColor(this.previousActiveStationId, 'white');
+    }
+    if (this.previousConnectionGraduateProgramId != 0) {
+      this.updateStationColor(this.previousConnectionGraduateProgramId, 'white');
+    }
     // Update the already completed stations
     for (let i = 0; i < this.completedStations.length; i++) {
       this.updateStationColor(this.completedStations[i].graduateProgramId, this.completedStationColor)
     }
     // Update the active station color
     this.updateStationColor(this.activeStationId, this.activeStationColor);
+    // If the active station has a connection, also highlight the connection
+    let connection = this.localStorageService.getStationWithGraduateProgramId(this.activeStationId);
+    if (connection != null) {
+      this.connectionGraduateProgramId = this.localStorageService.getGraduateProgramIdwithLineIdAndStationId(connection.lineId, connection.stationId)
+      console.log('Dit is de connectie ID: ' + this.connectionGraduateProgramId);
+      this.updateStationColor(this.connectionGraduateProgramId, this.activeStationColor)
+    }
   }
 
   updateStationColor(id: number, color: string) {
     const span_id = this.renderer.selectRootElement('#gp_' + id);
     this.renderer.setAttribute(span_id, 'fill', color);
-    console.log('Updateting id ' + id + ' with color ' + color);
+    console.log('Updating id ' + id + ' with color ' + color);
   }
 
 

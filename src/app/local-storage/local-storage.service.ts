@@ -109,11 +109,11 @@ export class LocalStorageService {
   }
 
   public setActiveStationId(id: number) {
-    localStorage.setItem("activeStation", id.toString());
+    localStorage.setItem("activeStationId", id.toString());
   }
 
   public getActiveStationId() {
-    var activeStation = localStorage.getItem("activeStation");
+    var activeStation = localStorage.getItem("activeStationId");
     return activeStation
   }
 
@@ -170,6 +170,34 @@ export class LocalStorageService {
   public getCompletedStations() {
     var completedStations = JSON.parse(localStorage.getItem("completedStations") || '{}');
     return completedStations
+  }
+
+  public getStationWithGraduateProgramId(graduateProgramId: number) {
+    // console.log('Dit is het station dat ik zoek: ' + graduateProgramId)
+    let lines = this.getLines()
+    let returnStation: any;
+    for (let i = 0; i < lines.length; i++) {
+      let line = lines[i];
+      // console.log('Current line: ' + JSON.stringify(line))
+      for (let j = 0; j < line.stations.length; j++) {
+        let station = line.stations[j];
+        // console.log('Current station: ' + JSON.stringify(station))
+        // console.log('GraduateProgramID: ' + station.graduateProgramId)
+        // console.log(typeof station.graduateProgramId)
+        let currentStationGraduateProgramId = Number(JSON.stringify(station.graduateProgramId))
+        if (currentStationGraduateProgramId == graduateProgramId) {
+          returnStation = station.connection;
+        }
+      }
+    }
+    console.log('This is the return station: ' + returnStation);
+    return returnStation
+  }
+
+  public getGraduateProgramIdwithLineIdAndStationId(lineId: number, stationId: number) {
+    let lines = this.getLines()
+
+    return lines[lineId].stations[stationId].graduateProgramId
   }
 
 

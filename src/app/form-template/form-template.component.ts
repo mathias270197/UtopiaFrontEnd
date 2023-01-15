@@ -8,6 +8,9 @@ import { CoordinatesService } from '../model/coordinates.service';
 import { LocalStorageService } from '../local-storage/local-storage.service';
 import { Router } from '@angular/router';
 import { BlockList } from 'net';
+import { Person } from '../login/person';
+import { Answer } from './answer';
+import { FormService } from './form.service';
 
 @Component({
   selector: 'app-form-template',
@@ -16,9 +19,13 @@ import { BlockList } from 'net';
 })
 export class FormTemplateComponent implements OnInit {
 
-  constructor(private graduateProgramService: GraduateProgramService, private coordinatesService: CoordinatesService, 
-    private renderer: Renderer2, private localStorage: LocalStorageService, private router: Router) {
+  
+
+  constructor(private graduateProgramService: GraduateProgramService, private coordinatesService: CoordinatesService, private formService: FormService
+    ,private renderer: Renderer2, private localStorage: LocalStorageService, private router: Router) {
   }
+
+  postAnswer$: Subscription = new Subscription();
 
   faculties: Faculty[] = [];
   faculties$: Subscription = new Subscription();
@@ -170,6 +177,8 @@ export class FormTemplateComponent implements OnInit {
 
   // Add the answer to the answer array
   addAnswer(questionId: number, answerId: number, correct: boolean) {
+    this.sendAnswerToBackend(answerId)
+    console.log("post answer in component")
     this.renderer.setStyle(document.body, 'animation-timing-function', 'linear');
     if (correct == true) {
       this.renderer.setStyle(document.body, 'animation-name', 'anim-correct');
@@ -216,7 +225,7 @@ export class FormTemplateComponent implements OnInit {
       }
       perc = ((this.initialTime - this.timeLeft) / this.initialTime) * 100;
       this.colorPalleteIndex = Math.floor(perc / 10);
-      console.log(perc, this.colorPalleteIndex);
+      //console.log(perc, this.colorPalleteIndex);
       currentColorFromPalette = this.colorPalette[this.colorPalleteIndex];
       me.progressStyle = `linear-gradient(to right, #FFFFFF ${perc}%, ${currentColorFromPalette} ${perc}%)`;
     }, 1000)
@@ -245,6 +254,19 @@ export class FormTemplateComponent implements OnInit {
 
   goBack() {
     this.router.navigateByUrl("/stations")
+  }
+
+  //send the answer to the backend
+  sendAnswerToBackend(MultipleChoiceAnswerId: number) {
+    var person: Person = this.localStorage.getCurrentUser();
+    var answer: Answer = {
+      MultipleChoiceAnswerId: MultipleChoiceAnswerId,
+      Person: person
+    }
+    this.postAnswer$ = this.formService.postAnswer(answer).subscribe({
+      next: (v) => this.router.navigateByUrl("/admin/category"),
+      error: (e) => console.log( e.message )
+    });
   }
 
 }

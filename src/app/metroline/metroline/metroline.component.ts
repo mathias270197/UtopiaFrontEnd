@@ -175,6 +175,9 @@ export class MetrolineComponent implements OnInit {
     this.renderer.setAttribute(span_id, 'fill', color);
     console.log('Updateting id ' + id + ' with color ' + color);
   }
+  getColor(){
+    return this.graduatePrograms.graduateProgramId === 11 ? 'green': 'green';
+  }
 
 
 }

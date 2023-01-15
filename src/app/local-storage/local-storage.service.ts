@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable} from '@angular/core';
 import { Person } from '../login/person';
 import { Faculty } from '../model/faculty';
 import { GraduateProgram } from '../model/graduate-program';
@@ -17,6 +17,7 @@ export class LocalStorageService {
   currentUserName: string | null = null;
   personalKey: string | null = null;
   lines: any[] = [];
+  completedStations: any[] = [];
 
   constructor() { }
 
@@ -42,7 +43,7 @@ export class LocalStorageService {
     }
   }
 
-  public addUserWithZeroPointsIfUserNotExists( userName: string) {
+  public addUserWithZeroPointsIfUserNotExists(userName: string) {
     if (localStorage.getItem(userName) === null) {
       localStorage.setItem(userName, "0");
     }
@@ -116,6 +117,15 @@ export class LocalStorageService {
     return activeStation
   }
 
+  public setDestinationStationId(id: number) {
+    localStorage.setItem("destinationStation", id.toString());
+  }
+
+  public getDestinationStationId() {
+    var destinationStation = localStorage.getItem("destinationStation");
+    return destinationStation
+  }
+
   public setGraduatePrograms(graduatePrograms: GraduateProgram[]) {
     let graduatePrograms_temp = JSON.stringify(graduatePrograms);
     localStorage.setItem("graduatePrograms", graduatePrograms_temp);
@@ -143,5 +153,24 @@ export class LocalStorageService {
     var currentLine = parseInt(localStorage.getItem("currentLine")||'');
     return currentLine
   }
+
+  public setDestinationStation(id: number){
+    localStorage.setItem("destinationStation", id.toString());
+  }
+
+  public getDestinationStation() {
+    var destinationStation = parseInt(localStorage.getItem("destinationStation")||'');
+    return destinationStation
+  }
+
+  public setCompletedStations(ids: object[]){
+    localStorage.setItem("completedStations", JSON.stringify(ids));
+  }
+
+  public getCompletedStations() {
+    var completedStations = JSON.parse(localStorage.getItem("completedStations") || '{}');
+    return completedStations
+  }
+
 
 }

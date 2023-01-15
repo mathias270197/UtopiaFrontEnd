@@ -38,14 +38,17 @@ export class LoginComponent implements OnInit, OnDestroy {
 
   async getLocalStorageItems() {
     this.graduatePrograms = await this.graduateProgramService.getGraduateProgramsSync();
+    let numberOfStations = this.graduatePrograms.length
+    let randomStation = Math.floor(Math.random() * numberOfStations);
+    this.localStorageService.setActiveStationId(this.graduatePrograms[randomStation].id);
+
     this.localStorageService.setGraduatePrograms(this.graduatePrograms);
+    this.localStorageService.setCompletedStations([]);
+    this.localStorageService.setCurrentLine(1);
 
     this.faculties = await this.graduateProgramService.getFacultiesSync();
     this.localStorageService.setFaculties(this.faculties);
 
-    this.localStorageService.setActiveStationId(0);
-    this.localStorageService.setNeighborhoodIds([]);
-    this.localStorageService.setCurrentLine(2);
   }
 
 }

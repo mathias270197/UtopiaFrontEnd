@@ -21,7 +21,7 @@ export class FormTemplateComponent implements OnInit {
 
 
   constructor(private graduateProgramService: GraduateProgramService, private coordinatesService: CoordinatesService, private formService: FormService
-    ,private renderer: Renderer2, private localStorage: LocalStorageService, private router: Router) {
+    ,private renderer: Renderer2, private localStorageService: LocalStorageService, private router: Router) {
 
   }
 
@@ -269,7 +269,7 @@ export class FormTemplateComponent implements OnInit {
 
   //send the answer to the backend
   sendAnswerToBackend(MultipleChoiceAnswerId: number) {
-    var person: Person = this.localStorage.getCurrentUser();
+    var person: Person = this.localStorageService.getCurrentUser();
     var answer: Answer = {
       MultipleChoiceAnswerId: MultipleChoiceAnswerId,
       Person: person

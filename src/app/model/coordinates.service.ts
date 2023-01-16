@@ -19,42 +19,42 @@ export class CoordinatesService {
     {
       id: 0,
       color: "red",
-      x: [20, 5, 10, 5, 10, 5, 10, 5, 10, 5],
-      y: [10, 15, 20, 30, 40, 50, 60, 70, 80, 90],
-      fillUpOrder: [5, 1, 0, 6, 8, 2, 4, 7, 3, 9],
-      connection: [null, null, null, null, null, null, null, null, null, null],
+      x: [5, 10, 15, 60, 80, 100, 120, 120, 120, 135],
+      y: [69, 79, 100, 100, 100, 100, 100, 120, 140, 155],
+      fillUpOrder: [3, 4, 5, 6, 9, 0, 2, 1, 7, 8],
+      connection: [null, null, null, {lineId: 3, stationId: 3}, {lineId: 3, stationId: 4}, {lineId: 1, stationId: 6}, {lineId: 1, stationId: 7}, null, null, null],
     },
     {
       id: 1,
       color: "green",
-      x: [10, 20, 30, 40, 50, 60, 70, 80, 90, 100],
-      y: [20, 20, 50, 50, 50, 50, 50, 50, 50, 50],
-      fillUpOrder: [3, 1, 6, 9, 4, 5, 2, 7, 8, 0],
-      connection: [null, null, null, null, null, null, null, null, null, null],
+      x: [35, 40, 60, 80, 90, 100, 100, 120, 120, 115],
+      y: [35, 40, 60, 80, 75, 85, 100, 100, 70, 60],
+      fillUpOrder: [5, 6, 7, 8, 2, 0, 3, 9, 1, 4],
+      connection: [null, null, null, null, null, null, {lineId: 0, stationId: 6}, {lineId: 0, stationId: 7}, {lineId: 2, stationId: 8}, null],
     },
     {
       id: 2,
       color: "blue",
-      x: [30, 30, 30, 30, 30, 30, 30, 30, 30, 30],
-      y: [10, 20, 30, 40, 50, 60, 70, 80, 90, 100],
-      fillUpOrder: [0, 1, 6, 3, 4, 5, 2, 7, 8, 9],
-      connection: [null, null,{lineId: 3, stationId: 3} , null, null, null, {lineId: 4, stationId: 3}, null, null, null],
+      x: [150, 120, 120, 100, 100, 65, 55, 40, 30, 15],
+      y: [90, 90, 70, 70, 50, 30, 30, 30, 30, 30],
+      fillUpOrder: [1, 2, 6, 3, 4, 5, 0, 7, 8, 9],
+      connection: [null, null, {lineId: 1, stationId: 3}, null, null, null, null, null, null, null],
     },
     {
       id: 3,
       color: "yellow",
-      x: [10, 20, 30, 40, 50, 60, 70, 80, 90, 100],
-      y: [10, 20, 30, 40, 50, 60, 70, 80, 90, 100],
-      fillUpOrder: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
-      connection: [null, null, null, null, null, null, null, null, null, null],
+      x: [20, 35, 60, 60, 80, 95, 105, 115, 125, 135],
+      y: [155, 140, 140, 100, 100, 95, 85, 75, 65, 55],
+      fillUpOrder: [3, 4, 0, 1, 7, 8, 2, 9, 5, 6],
+      connection: [null, null, null, {lineId: 0, stationId: 4}, {lineId: 0, stationId: 5}, null, null, null, null, null],
     },
     {
       id: 4,
       color: "orange",
-      x: [10, 10, 20, 30, 40, 50, 50, 60, 70, 80],
-      y: [100, 90, 80, 70, 60, 50, 40, 30, 20, 10],
+      x: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+      y: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
       fillUpOrder: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
-      connection: [null, null, null, {lineId: 2, stationId: 6}, null, null, null, null, null, null],
+      connection: [null, null, null, null, null, null, null, null, null, null],
     },
     {
       id: 5,
@@ -116,7 +116,7 @@ export class CoordinatesService {
     console.log('Faculties array');
     console.log(this.faculties);
     // Initiate the div for the metromap
-    var metromap: string = '<div class="map-svg d-flex p-2"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 120 120">';
+    var metromap: string = '<div class="map-svg d-flex p-2"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 160 160">';
     // Variable to collect all the lines
     let lines: any[] = [];
     // For every line

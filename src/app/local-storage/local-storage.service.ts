@@ -63,13 +63,21 @@ export class LocalStorageService {
     if (currentUserName === null) {
       currentUserName = "";
     }
-    return this.lookupPointsOfUser(currentUserName)
+    var points = this.lookupPointsOfUser(currentUserName)
+    return points
   }
 
 
-  public static addPointsToUser( userName: string) {
-    // to do
+  public addPointsToCurrentUser(points: number ) {
+    var currentUserName = localStorage.getItem("currentUserName");
+    if (currentUserName === null) {
+      currentUserName = "";
+    }
+    var UserPoints = this.lookupPointsOfCurrentUser();
+    UserPoints += points;
+    localStorage.setItem(currentUserName, UserPoints.toString());
   }
+  
 
   public setLines(lines: any) {
     lines=JSON.stringify(lines);
@@ -89,15 +97,6 @@ export class LocalStorageService {
     var metromap = localStorage.getItem("metromap");
     return metromap
   }
-
-  // public setCurrentFormId(id: number) {
-  //   localStorage.setItem("currentFormId", id.toString());
-  // }
-
-  // public getCurrentFormId() {
-  //   var currentFormId = localStorage.getItem("currentFormId");
-  //   return currentFormId
-  // }
 
   public setNeighborhoodIds(ids: number[]) {
     localStorage.setItem("neighborhoodIds", ids.toString());

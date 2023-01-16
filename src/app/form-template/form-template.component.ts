@@ -92,6 +92,8 @@ export class FormTemplateComponent implements OnInit {
   //
   gameFinished: boolean = false;
   hasEscaped: boolean = false;
+  //Points earned
+  points: number = 0;
 
   // Variables for the timer // https://stackoverflow.com/questions/50455347/how-to-do-a-timer-in-angular-5
   initialTime: number = null!;
@@ -121,6 +123,7 @@ export class FormTemplateComponent implements OnInit {
     this.disabled = false;
     this.gameFinished = false;
     this.hasEscaped = false;
+    this.points = 0;
     clearInterval(this.interval);
     let currentFormId = Number(this.localStorageService.getActiveStationId());
     this.getGraduateProgramById(currentFormId);
@@ -255,17 +258,29 @@ export class FormTemplateComponent implements OnInit {
   showResult() {
     console.log('Aantal jusite antwoorden: ', this.correctAnswerCounter);
     this.gameFinished = true;
-    if (this.correctAnswerCounter > this.nrOfActiveQuestions/2) {
+    if (this.correctAnswerCounter > this.nrOfActiveQuestions/10) {
+      console.log("correct aantal antwoorden: " + this.correctAnswerCounter);
+      console.log("tijd over: " + this.timeLeft);
+      this.points = this.calculateAndStorePoints(this.correctAnswerCounter,this.timeLeft);
       this.hasEscaped = true;
     } else {
 
     }
   }
 
+  calculateAndStorePoints(correctAnswerCounter: number,timeLeft: number ){
+    var multiplier = Math.round(timeLeft / 10) + 10 //number between 10 and 20
+    var points = correctAnswerCounter * multiplier //number between 0 200
+    this.localStorageService.addPointsToCurrentUser(points);
+    return points;
+  }
+
   goBack() {
     this.localStorageService.setCurrentLine(1)
     this.router.navigateByUrl("/stations")
   }
+
+  
 
   //send the answer to the backend
   sendAnswerToBackend(MultipleChoiceAnswerId: number) {

@@ -42,8 +42,6 @@ export class MetrolineComponent implements OnInit {
     console.log('lines', this.lines)
     this.faculties = this.localStorageService.getFaculties();
     console.log('faculties', this.faculties)
-    // if(this.localStorageService.getCurrentLine() ==1){
-    // this.activeLineID = this.getLine();}
     this.activeLineID = this.getLine();
     this.localStorageService.setCurrentLine(this.activeLineID);
     // Get the completed stations
@@ -142,9 +140,7 @@ export class MetrolineComponent implements OnInit {
       }
     }
     // let station = this.graduatePrograms[currentId].connection.stationId
-    // 
-    // this.localStorageService.setCurrentLine(99)
-    //change the activelineId to the choosen line id.
+    // Change the activelineId to the choosen line id.
     this.activeLineID = id;
     // set the active station id to the id of the station of the new choosen line
     this.localStorageService.setActiveStationId(this.lines[this.activeLineID].stations[this.graduatePrograms[currentId].connection.stationId].graduateProgramId)
@@ -178,6 +174,7 @@ export class MetrolineComponent implements OnInit {
 
   updateStationColor(id: number, color: string) {
     const span_id = this.renderer.selectRootElement('#gp_' + id);
+    console.log(span_id);
     this.renderer.setAttribute(span_id, 'fill', color);
     console.log('Updating id ' + id + ' with color ' + color);
   }

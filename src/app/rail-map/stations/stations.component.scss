@@ -82,7 +82,11 @@ body{
 	// 	display: flex;
 	// 	max-width: 1200px;
 	// }
+	background-image: url('../../../assets/images/metrolondon.gif');
+	background-size: cover;
+
 }
+
 #railmap{
 	margin-top: 50px;
 	width: 100%;
@@ -115,9 +119,3 @@ body{
 .city-line{
  display: none;
 }
-
-// @keyframes dash {
-//   to {
-//     stroke-dashoffset: -100;
-//   }
-// }

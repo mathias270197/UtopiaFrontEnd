@@ -195,7 +195,6 @@ export class LocalStorageService {
 
   public getGraduateProgramIdwithLineIdAndStationId(lineId: number, stationId: number) {
     let lines = this.getLines()
-
     return lines[lineId].stations[stationId].graduateProgramId
   }
 

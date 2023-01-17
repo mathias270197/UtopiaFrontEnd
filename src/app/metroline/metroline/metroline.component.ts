@@ -67,7 +67,7 @@ export class MetrolineComponent implements OnInit {
     console.log('opl', this.graduatePrograms)
   }
 
-  async goToForm(destinationStationId: number) {
+  async goToStation(destinationStationId: number) {
 
     console.log('Going to form with id: ' + destinationStationId);
     // Get the indexes in the active line between the active station and the destination station
@@ -107,7 +107,7 @@ export class MetrolineComponent implements OnInit {
     }
 
     this.localStorageService.setActiveStationId(destinationStationId);
-    this.router.navigateByUrl("/form")
+    // this.router.navigateByUrl("/form")
   }
 
   getLine() {
@@ -129,9 +129,7 @@ export class MetrolineComponent implements OnInit {
     return activeLineID
   }
 
-
   changeLine(id: number): void {
-
     // get the current position of the active station in order to be able to get the connection to the crossing line
     let currentId = 0;
     for (let i = 0; i < this.graduatePrograms.length; i++) {
@@ -149,6 +147,10 @@ export class MetrolineComponent implements OnInit {
     this.ngOnInit();
   }
 
+  goToForm(){
+    this.router.navigateByUrl("/form")
+  }
+
   updateStationColors() {
     // First revert the previous active station and connection
     if (this.previousActiveStationId != 0) {
@@ -164,12 +166,8 @@ export class MetrolineComponent implements OnInit {
     // Update the active station color
     this.updateStationColor(this.activeStationId, this.activeStationColor);
     // If the active station has a connection, also highlight the connection
-    let connection = this.localStorageService.getStationWithGraduateProgramId(this.activeStationId);
-    if (connection != null) {
-      this.connectionGraduateProgramId = this.localStorageService.getGraduateProgramIdwithLineIdAndStationId(connection.lineId, connection.stationId)
-      console.log('Dit is de connectie ID: ' + this.connectionGraduateProgramId);
-      this.updateStationColor(this.connectionGraduateProgramId, this.activeStationColor)
-    }
+    this.getConnection();
+
   }
 
   updateStationColor(id: number, color: string) {
@@ -179,6 +177,14 @@ export class MetrolineComponent implements OnInit {
     console.log('Updating id ' + id + ' with color ' + color);
   }
 
+  getConnection() {
+    let connection = this.localStorageService.getStationWithGraduateProgramId(this.activeStationId);
+    if (connection != null) {
+      this.connectionGraduateProgramId = this.localStorageService.getGraduateProgramIdwithLineIdAndStationId(connection.lineId, connection.stationId)
+      console.log('Dit is de connectie ID: ' + this.connectionGraduateProgramId);
+      this.updateStationColor(this.connectionGraduateProgramId, this.activeStationColor)
+    }
+  }
 
 }
 

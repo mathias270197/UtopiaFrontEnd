@@ -14,37 +14,37 @@ export class CoordinatesService {
   // The 'defaultLines' variable contains the hardcoded default relative coordinates for the metro map
   // With 'x' and 'y' you can draw the line from the start station until the end station of the line.
   // With 'fillUpOrder' you can define in which order the stations are placed on the line.
-  // Connection defines to which other lines you can connect. The -1 means there is no connection. An object including {lineId: 4, stationId: 3} indicates a connection.
+  // Connection defines to which other lines you can connect. The null means there is no connection. An object including {lineId: 4, stationId: 3} indicates a connection.
   private defaultLines: any = [
     {
       id: 0,
       color: "red",
-      x: [5, 10, 15, 60, 80, 100, 120, 120, 120, 135],
-      y: [69, 79, 100, 100, 100, 100, 100, 120, 140, 155],
+      x: [20, 20, 48, 64, 81, 102, 129, 140, 150, 155],
+      y: [17, 52, 80, 80, 80, 80, 80, 85, 85, 75],
       fillUpOrder: [3, 4, 5, 6, 9, 0, 2, 1, 7, 8],
       connection: [null, null, null, {lineId: 3, stationId: 3}, {lineId: 3, stationId: 4}, {lineId: 1, stationId: 6}, {lineId: 1, stationId: 7}, null, null, null],
     },
     {
       id: 1,
       color: "green",
-      x: [35, 40, 60, 80, 90, 100, 100, 120, 120, 115],
-      y: [35, 40, 60, 80, 75, 85, 100, 100, 70, 60],
+      x: [65, 65, 65, 65, 70, 95, 102, 120, 123, 123, 126],
+      y: [10, 31, 48, 56, 62, 62, 80, 88, 96, 120, 124],
       fillUpOrder: [5, 6, 7, 8, 2, 0, 3, 9, 1, 4],
       connection: [null, null, null, null, null, null, {lineId: 0, stationId: 6}, {lineId: 0, stationId: 7}, {lineId: 2, stationId: 8}, null],
     },
     {
       id: 2,
       color: "blue",
-      x: [150, 120, 120, 100, 100, 65, 55, 40, 30, 15],
-      y: [90, 90, 70, 70, 50, 30, 30, 30, 30, 30],
+      x: [5, 32, 43, 81, 91, 103, 120, 129, 129, 150],
+      y: [125, 98, 98, 98, 98, 88, 88, 80, 65, 45],
       fillUpOrder: [1, 2, 6, 3, 4, 5, 0, 7, 8, 9],
       connection: [null, null, {lineId: 1, stationId: 3}, null, null, null, null, null, null, null],
     },
     {
       id: 3,
       color: "yellow",
-      x: [20, 35, 60, 60, 80, 95, 105, 115, 125, 135],
-      y: [155, 140, 140, 100, 100, 95, 85, 75, 65, 55],
+      x: [43, 43, 48, 48, 48, 65, 87, 104, 114, 134],
+      y: [118, 98, 90, 80, 62, 48, 48, 48, 38, 18],
       fillUpOrder: [3, 4, 0, 1, 7, 8, 2, 9, 5, 6],
       connection: [null, null, null, {lineId: 0, stationId: 4}, {lineId: 0, stationId: 5}, null, null, null, null, null],
     },
@@ -66,7 +66,7 @@ export class CoordinatesService {
     },
     {
       id: 6,
-      color: "green",
+      color: "brown",
       x: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
       y: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
       fillUpOrder: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
@@ -74,7 +74,7 @@ export class CoordinatesService {
     },
     {
       id: 7,
-      color: "blue",
+      color: "pink",
       x: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
       y: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
       fillUpOrder: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
@@ -90,7 +90,7 @@ export class CoordinatesService {
     },
     {
       id: 9,
-      color: "pink",
+      color: "black",
       x: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
       y: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
       fillUpOrder: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],

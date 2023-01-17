@@ -4,7 +4,9 @@
     <tr *ngFor="let st of graduatePrograms">
         <td  bgColor={{activeline.color}}>o</td>
         <td [ngStyle]="{backgroundColor: st.graduateProgramId === activeStationId ? 'green' : 'white'}"
-          (click)="goToForm(st.graduateProgramId)" >{{st.name }}</td>
+          (click)="goToStation(st.graduateProgramId)" >{{st.name}}</td>
+        <!-- <td *ngIf="st.graduateProgramId === activeStationId">test</td> -->
+        <td (click)="goToForm()" *ngIf="st.graduateProgramId === activeStationId"><button >test</button></td>
         <td *ngIf="st.connection != null" bgColor={{lines[st.connection.lineId].color}} >
            {{faculties[st.connection.lineId].name}}</td>
             <td *ngIf="st.connection != null && st.graduateProgramId == activeStationId" bgColor={{lines[st.connection.lineId].color}}

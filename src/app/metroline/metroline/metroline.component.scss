@@ -4,6 +4,43 @@ td {
 .active{
     background-color: green;
 }
+.box{
+    display: block;
+    width: 100%;
+}
+.boxRow{
+    clear: both;
+}
+.boxCell{
+    
+    width: 50%;
+    float: left;
+}
+.firstCell{
+    width: 2%;
+    float: left;
+    
+}
+.secondCell{
+    
+    width: 25%;
+    float: left;
+}
+.smallCell{
+    width: 10%;
+    float: left;
+    margin-left: 5px;
+}
+button{
+    border: none;
+    border-radius: 5px;
+}
+.activeline{
+margin-top: 25px;
+margin-bottom: 25px;
+text-align: center;
+}
+
 
 
 

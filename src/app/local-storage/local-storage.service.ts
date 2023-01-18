@@ -172,17 +172,12 @@ export class LocalStorageService {
   }
 
   public getStationWithGraduateProgramId(graduateProgramId: number) {
-    // console.log('Dit is het station dat ik zoek: ' + graduateProgramId)
     let lines = this.getLines()
     let returnStation: any;
     for (let i = 0; i < lines.length; i++) {
       let line = lines[i];
-      // console.log('Current line: ' + JSON.stringify(line))
       for (let j = 0; j < line.stations.length; j++) {
         let station = line.stations[j];
-        // console.log('Current station: ' + JSON.stringify(station))
-        // console.log('GraduateProgramID: ' + station.graduateProgramId)
-        // console.log(typeof station.graduateProgramId)
         let currentStationGraduateProgramId = Number(JSON.stringify(station.graduateProgramId))
         if (currentStationGraduateProgramId == graduateProgramId) {
           returnStation = station.connection;
@@ -196,6 +191,24 @@ export class LocalStorageService {
   public getGraduateProgramIdwithLineIdAndStationId(lineId: number, stationId: number) {
     let lines = this.getLines()
     return lines[lineId].stations[stationId].graduateProgramId
+  }
+
+  public isStationCompleted(graduateProgramId: number) {
+    let completed: boolean = false;
+    let completedStations = this.getCompletedStations();
+    if (completedStations.length > 0) {
+      for (let i = 0; i < completedStations.length; i++) {
+        if (completedStations[i].graduateProgramId == graduateProgramId) {
+          completed = true;
+        } else {
+          let doNothing = true;
+        }
+      }
+    } else { 
+      completed = false;
+    }
+
+    return completed
   }
 
 

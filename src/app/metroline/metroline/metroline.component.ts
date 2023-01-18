@@ -20,10 +20,12 @@ export class MetrolineComponent implements OnInit {
   activeLineID = 2;
   faculties: any = [];
   activeStationColor: string = "red";
+  completedStationColor: string = "black";
+  completedStationColorPartial: string = "grey";
+  notCompletedStationColor: string = "white";
   activeStationId: number = 0;
   completedStations: any[] = [];
-  completedStationColor: string = "black";
-  completedStationColorPartion: string = "grey";
+
   blinkingDuration: number = 500; // in milliseconds
   sleep = (blinkingDuration: number) => new Promise(r => setTimeout(r, blinkingDuration));
   previousActiveStationId: number = 0;
@@ -39,17 +41,14 @@ export class MetrolineComponent implements OnInit {
     this.activeStationId = Number(this.localStorageService.getActiveStationId());
     // Determine on which line it is located
     this.lines = this.metroLineService.getLines();
-    console.log('lines', this.lines)
+    // console.log('lines', this.lines)
     this.faculties = this.localStorageService.getFaculties();
-    console.log('faculties', this.faculties)
+    // console.log('faculties', this.faculties)
     this.activeLineID = this.getLine();
     this.localStorageService.setCurrentLine(this.activeLineID);
     // Get the completed stations
     this.completedStations = this.localStorageService.getCompletedStations();
     this.updateStationColors();
-
-
-
 
     this.activeline = this.lines[this.activeLineID]
     console.log('active line', this.activeline)
@@ -68,12 +67,12 @@ export class MetrolineComponent implements OnInit {
   }
 
   async goToStation(destinationStationId: number) {
-
     console.log('Going to form with id: ' + destinationStationId);
     // Get the indexes in the active line between the active station and the destination station
     let transfer: number[] = [];
     let destinationStationIndexOnLine = 0;
     let activeStationIndexOnLine = 0;
+    // Define where the start and destination are on the line
     for (let i = 0; i < this.graduatePrograms.length; i++) {
       let currentGraduateProgramId = this.graduatePrograms[i].graduateProgramId
       transfer.push(currentGraduateProgramId)
@@ -86,40 +85,34 @@ export class MetrolineComponent implements OnInit {
         destinationStationIndexOnLine = transfer.length - 1;
       }
     }
-    console.log('Index active station : ' + activeStationIndexOnLine);
-    console.log('Index destination station : ' + destinationStationIndexOnLine);
+    // console.log('Index active station : ' + activeStationIndexOnLine);
+    // console.log('Index destination station : ' + destinationStationIndexOnLine);
     // Check if we need to trim and/or reverse the array
     if (activeStationIndexOnLine < destinationStationIndexOnLine) {
       transfer = transfer.slice(activeStationIndexOnLine, destinationStationIndexOnLine + 1)
-      console.log('transfer no reverse after slice: ' + transfer);
+      // console.log('transfer no reverse after slice: ' + transfer);
     } else {
       transfer = transfer.slice(destinationStationIndexOnLine, activeStationIndexOnLine + 1).reverse();
-      console.log('transfer with reverse after slice: ' + transfer);
+      // console.log('transfer with reverse after slice: ' + transfer);
     }
     console.log('transfer: ' + transfer);
     // Loop over the stations in between to go over the line to the destination station
     for (let i = 0; i < transfer.length; i++) {
-      this.previousActiveStationId = this.activeStationId;
-      this.previousConnectionGraduateProgramId = this.connectionGraduateProgramId;
       this.activeStationId = transfer[i];
       this.updateStationColors();
+      this.previousActiveStationId = this.activeStationId;
+      this.previousConnectionGraduateProgramId = this.connectionGraduateProgramId;
       await this.sleep(this.blinkingDuration);
     }
 
     this.localStorageService.setActiveStationId(destinationStationId);
-    // this.router.navigateByUrl("/form")
   }
 
   getLine() {
     let activeLineID = -1;
     for (let i = 0; i < this.lines.length; i++) {
       let stations = this.lines[i].stations
-      // console.log('line: ' + i)
-      // console.log('Stations: ' + stations)
-      // console.log('Lengte station: ' + stations.length)
       for (let j = 0; j < stations.length; j++) {
-        // console.log('Station: ' + j)
-        // console.log('Vergelijking: ' + stations[j].graduateProgramId + ' - ' + this.activeStationId)
         if (stations[j].graduateProgramId == this.activeStationId) {
           activeLineID = this.lines[i].lineId;
           console.log('Nieuwe actieve lijn: ' + activeLineID);
@@ -147,43 +140,63 @@ export class MetrolineComponent implements OnInit {
     this.ngOnInit();
   }
 
-  goToForm(){
+  goToForm() {
     this.router.navigateByUrl("/form")
   }
 
   updateStationColors() {
     // First revert the previous active station and connection
     if (this.previousActiveStationId != 0) {
-    this.updateStationColor(this.previousActiveStationId, 'white');
+      this.updateStationColor(this.previousActiveStationId, this.notCompletedStationColor);
     }
     if (this.previousConnectionGraduateProgramId != 0) {
-      this.updateStationColor(this.previousConnectionGraduateProgramId, 'white');
+      this.updateStationColor(this.previousConnectionGraduateProgramId, this.notCompletedStationColor);
     }
     // Update the already completed stations
     for (let i = 0; i < this.completedStations.length; i++) {
-      this.updateStationColor(this.completedStations[i].graduateProgramId, this.completedStationColor)
+      let hasConnection = this.getConnection(this.completedStations[i].graduateProgramId);
+      if (hasConnection == true) {
+        let stationCompleted = this.localStorageService.isStationCompleted(this.completedStations[i].graduateProgramId);
+        let connectionCompleted = this.localStorageService.isStationCompleted(this.connectionGraduateProgramId);
+        let color: string;
+        if (stationCompleted == true && connectionCompleted == true) {
+          color = this.completedStationColor;
+        } else if (stationCompleted == false && connectionCompleted == false) {
+          color = this.notCompletedStationColor;
+        } else {
+          color = this.completedStationColorPartial;
+        }
+        this.updateStationColor(this.connectionGraduateProgramId, color)
+        this.updateStationColor(this.completedStations[i].graduateProgramId, color)
+      } else {
+        this.updateStationColor(this.completedStations[i].graduateProgramId, this.completedStationColor)
+      }
     }
     // Update the active station color
     this.updateStationColor(this.activeStationId, this.activeStationColor);
     // If the active station has a connection, also highlight the connection
-    this.getConnection();
+    if (this.getConnection(this.activeStationId) == true) {
+      this.updateStationColor(this.connectionGraduateProgramId, this.activeStationColor);
+    }
 
   }
 
   updateStationColor(id: number, color: string) {
     const span_id = this.renderer.selectRootElement('#gp_' + id);
-    console.log(span_id);
+    // console.log(span_id);
     this.renderer.setAttribute(span_id, 'fill', color);
-    console.log('Updating id ' + id + ' with color ' + color);
+    // console.log('Updating id ' + id + ' with color ' + color);
   }
 
-  getConnection() {
-    let connection = this.localStorageService.getStationWithGraduateProgramId(this.activeStationId);
+  getConnection(graduateProgramId: number) {
+    let connection = this.localStorageService.getStationWithGraduateProgramId(graduateProgramId);
+    let hasConnection = false;
     if (connection != null) {
       this.connectionGraduateProgramId = this.localStorageService.getGraduateProgramIdwithLineIdAndStationId(connection.lineId, connection.stationId)
       console.log('Dit is de connectie ID: ' + this.connectionGraduateProgramId);
-      this.updateStationColor(this.connectionGraduateProgramId, this.activeStationColor)
+      hasConnection = true;
     }
+    return hasConnection
   }
 
 }

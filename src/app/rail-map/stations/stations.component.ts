@@ -33,22 +33,11 @@ export class StationsComponent implements OnInit {
   neighborhoodIds: number[] = [];
   activeStationId: number = 0;
   junk: String = '';
-  constructor(private stationService: StationService, private route: ActivatedRoute, 
-    private pointsService: PointsService, private coordinatesService: CoordinatesService,private metroLineService: MetrolineService,
-    private sanitizer: DomSanitizer, private localStorageService: LocalStorageService,
-    private graduateProgramService: GraduateProgramService) { }
+  constructor(private coordinatesService: CoordinatesService, private sanitizer: DomSanitizer, private localStorageService: LocalStorageService) { }
 
   ngOnInit(): void {
-    // this.getStations();
-    // this.points = this.pointsService.getPoints();
-
     this.getMetroMap();
-    
   }
-
-  // getStations() {
-  //   this.stations$ = this.stationService.getStations().subscribe(result => this.stations = result, err => this.errorMessage = err);
-  // }
 
   async getMetroMap() {
     // Calculate the lines and coordinates

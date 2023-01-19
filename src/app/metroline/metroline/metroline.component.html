@@ -16,12 +16,12 @@
 <div ngClass="box">
   <div *ngFor="let st of graduatePrograms" ngClass="boxRow">
     <!-- <div  [style.backgroundColor]="activeline.color" ngClass="firstCell">o</div> -->
-    <div [ngStyle]="{backgroundColor: st.graduateProgramId === activeStationId ? 'lightgreen' : 'white'}"
+    <div [ngStyle]="{backgroundColor: st.graduateProgramId === activeStationId ? 'lightgrey' : 'white'}"
     (click)="goToStation(st.graduateProgramId)"
-    ngClass="boxCell"><button [ngStyle]="{backgroundColor: st.graduateProgramId === activeStationId ? 'lightgreen' : 'white'}">{{st.name}}</button></div>
-    <div (click)="goToForm()" *ngIf="st.graduateProgramId === activeStationId" ngClass="smallCell"><button [ngStyle]="{backgroundColor: st.graduateProgramId === activeStationId ? 'lightgreen' : 'white'}"><i class="fa-regular fa-circle-down"></i></button></div>
+    ngClass="boxCell"><button [ngStyle]="{backgroundColor: st.graduateProgramId === activeStationId ? 'lightgrey' : 'white'}">{{st.name}}</button></div>
+    <div (click)="goToForm()" *ngIf="st.graduateProgramId === activeStationId" ngClass="smallCell"><button [ngStyle]="{backgroundColor: st.graduateProgramId === activeStationId ? 'lightgrey' : 'white'}"><i class="fa-regular fa-circle-down"></i></button></div>
     <div *ngIf="st.graduateProgramId != activeStationId" ngClass="smallCell"><button [ngStyle]="{backgroundColor: st.graduateProgramId === activeStationId ? 'lightgreen' : 'white'}"><i class="fa-solid fa-ban"></i></button></div>
-    <div *ngIf="st.connection != null" [style.backgroundColor]="lines[st.connection.lineId].color" ngClass="secondCell">{{faculties[st.connection.lineId].name}}</div>
+    <!-- <div *ngIf="st.connection != null" [style.backgroundColor]="lines[st.connection.lineId].color" ngClass="secondCell">{{faculties[st.connection.lineId].name}}</div> -->
     <div *ngIf="st.connection != null && st.graduateProgramId == activeStationId" 
     (click)="changeLine(st.connection.lineId)" ngClass="smallCell
     "><button [style.backgroundColor]="lines[st.connection.lineId].color"><i class="fa-solid fa-person-walking-arrow-right"></i> </button></div>

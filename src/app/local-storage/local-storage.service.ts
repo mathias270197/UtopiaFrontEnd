@@ -35,6 +35,10 @@ export class LocalStorageService {
     localStorage.setItem("currentUserName", currentUserName);
   }
 
+  public getCurrentUserName() {
+    return localStorage.getItem("currentUserName");
+  }
+
   public setPersonalKeyIfNotExists() {
     if (localStorage.getItem("personalKey") === null) {
       //Create random string:

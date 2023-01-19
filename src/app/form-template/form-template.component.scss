@@ -5,7 +5,7 @@
     margin-bottom: 10px;
     margin-top: 10px;
     text-align: center;
-    background-color: white;
+    background-color: lightgrey;
     border: 1px solid black;
     width: 100%;
 }
@@ -13,21 +13,19 @@
 // Styling loading bar
 .loadingbar {
     height: 2px;
+    // width: 50%;
     box-shadow: none;
+    // padding-right: 12px !important;
 }
 
 .loadingbar[disabled] {
     cursor: default;
+    background-clip: content-box;
 }
 
-.loadingbar.launch-btn {
-    border: none;
-    transition: all 0.1s ease-in;
-    // width: 500px;
-}
-
-// .grad {
-//     background-image: linear-gradient(to right, green, red);
-//     height: 10px;
+// .loadingbar.launch-btn {
+//     border: none;
+//     transition: all 0.1s ease-in;
+//     // width: 500px;
 // }
 

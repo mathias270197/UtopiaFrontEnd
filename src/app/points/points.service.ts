@@ -8,6 +8,7 @@ import { LocalStorageService } from '../local-storage/local-storage.service';
 export class PointsService {
 
   constructor(private localStorageService: LocalStorageService) { }
+  
   getPoints() {
     return  this.localStorageService.lookupPointsOfCurrentUser()
   }

@@ -1,3 +1,5 @@
+@import '../../../variables';
+
 $strokeColor: #C74A47;
 body{
 	font-size: 16px;
@@ -82,8 +84,10 @@ body{
 	// 	display: flex;
 	// 	max-width: 1200px;
 	// }
-	// background-image: url('../../../assets/images/metrolondon.gif');
+	background-image: url('../../../assets/images/FolderPaperLogo.png');
 	background-size: cover;
+	border: 1px solid black;
+	border-radius: $borderradius;
 
 }
 

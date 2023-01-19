@@ -1,8 +1,8 @@
 <div class="container">
     <div class="row">
-        <p class="col-6">{{graduateProgram.name}}</p>
-        <p class="col-6 text-end">{{timeLeft}}</p>
-        <div class="loadingbar btn-secondary launch-btn" [style.background]="progressStyle">
+        <p class="col-10">{{graduateProgram.name}}</p>
+        <p class="col-2 text-end">{{timeLeft}}</p>
+        <div class="loadingbar" [style.background]="progressStyle">
         </div>
 
     </div>
@@ -17,17 +17,17 @@
 
     <div class="text-center" [ngClass]="gameFinished ? '' : 'd-none'">
         <div id="no-escape" class="mt-5" [ngClass]="hasEscaped ? 'd-none' : ''">
-            <p>Helaas! Het is je niet gelukt om te ontsnappen!</p>
-            <button (click)="retry()">Probeer opnieuw</button>
+            <p>Helaas! De vragenlijst is niet volledig afgewerkt!</p>
+            <button (click)="retry()" class="btn btn-primary">Probeer opnieuw</button>
         </div>
 
         <div id="escape" class="mt-5" [ngClass]="hasEscaped ? '' : 'd-none'">
-            <p>Proficiat! Het is je gelukt om te ontsnappen!</p>
-            <p>je hebt {{points}} punten verdiend!</p>
+            <p>Je hebt {{correctAnswerCounter}} vragen correct beantwoord!</p>
+            <p>Je hebt {{points}} punten verdiend!</p>
         </div>
 
         <div class="mt-5">
-            <button (click)="goBack()">Terug naar de metro</button>
+            <button (click)="goBack()" class="btn btn-primary">Terug naar de metro</button>
         </div>
     </div>
 </div>

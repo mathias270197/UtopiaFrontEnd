@@ -31,7 +31,9 @@ import { MetrolineModule } from './metroline/metroline.module';
     PointsModule,
     NgbModule,
     MetrolineModule,
- 
+  ],
+  exports: [
+    PointsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

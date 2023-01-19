@@ -21,7 +21,7 @@ export class FormTemplateComponent implements OnInit {
 
 
   constructor(private graduateProgramService: GraduateProgramService, private coordinatesService: CoordinatesService, private formService: FormService
-    ,private renderer: Renderer2, private localStorageService: LocalStorageService, private router: Router) {
+    , private renderer: Renderer2, private localStorageService: LocalStorageService, private router: Router) {
 
   }
 
@@ -210,7 +210,7 @@ export class FormTemplateComponent implements OnInit {
       this.getNextQuestion(this.nextQuestionIndex);
       this.questionDisplayIndex += 1;
     }
-    
+
   }
 
   // Initiate the timer
@@ -238,17 +238,8 @@ export class FormTemplateComponent implements OnInit {
     clearInterval(this.interval);
     // Disable the buttons
     this.disabled = true;
+    // Show messages and the result
     this.showResult()
-    let completedStations: any[] = this.localStorageService.getCompletedStations();
-    console.log('Completed stations: ' + completedStations)
-    completedStations.push(
-      {
-        graduateProgramId: this.graduateProgram.id,
-        score: this.timeLeft,
-      }
-    )
-    this.localStorageService.setCompletedStations(completedStations);
-
   };
 
   retry() {
@@ -258,17 +249,45 @@ export class FormTemplateComponent implements OnInit {
   showResult() {
     console.log('Aantal jusite antwoorden: ', this.correctAnswerCounter);
     this.gameFinished = true;
-    if (this.correctAnswerCounter > this.nrOfActiveQuestions/10) {
+    if (this.questionsAnswered == this.nrOfActiveQuestions) {
       console.log("correct aantal antwoorden: " + this.correctAnswerCounter);
       console.log("tijd over: " + this.timeLeft);
-      this.points = this.calculateAndStorePoints(this.correctAnswerCounter,this.timeLeft);
+
+      // Store in the backend
+      this.points = this.calculateAndStorePoints(this.correctAnswerCounter, this.timeLeft);
+
+      // Store in the local storage
+      let completedStations: any[] = this.localStorageService.getCompletedStations();
+      console.log('Completed stations: ' + completedStations)
+      // Check if the stations is already done or not
+      let indexCurrentStation = null;
+      if (completedStations.length > 0) {
+        for (let i = 0; i < completedStations.length; i++) {
+          if (completedStations[i].graduateProgramId == this.graduateProgram.id) {
+            indexCurrentStation = i;
+          }
+        }
+      }
+      if (indexCurrentStation == null) {
+        // Add
+        completedStations.push(
+          {
+            graduateProgramId: this.graduateProgram.id,
+            score: this.points,
+          }
+        )
+      } else {
+        // Update
+        completedStations[indexCurrentStation].score = this.points;
+      }
+      this.localStorageService.setCompletedStations(completedStations);
       this.hasEscaped = true;
     } else {
-
+      this.hasEscaped = false;
     }
   }
 
-  calculateAndStorePoints(correctAnswerCounter: number,timeLeft: number ){
+  calculateAndStorePoints(correctAnswerCounter: number, timeLeft: number) {
     var multiplier = Math.round(timeLeft / 10) + 10 //number between 10 and 20
     var points = correctAnswerCounter * multiplier //number between 0 200
     this.localStorageService.addPointsToCurrentUser(points);
@@ -280,7 +299,7 @@ export class FormTemplateComponent implements OnInit {
     this.router.navigateByUrl("/stations")
   }
 
-  
+
 
   //send the answer to the backend
   sendAnswerToBackend(MultipleChoiceAnswerId: number) {
@@ -291,7 +310,7 @@ export class FormTemplateComponent implements OnInit {
     }
     this.postAnswer$ = this.formService.postAnswer(answer).subscribe({
       next: (v) => this.router.navigateByUrl("/admin/category"),
-      error: (e) => console.log( e.message )
+      error: (e) => console.log(e.message)
     });
   }
 

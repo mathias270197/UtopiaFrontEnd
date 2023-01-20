@@ -5,9 +5,9 @@ import { PointsComponent } from './points/points.component';
 
 
 @NgModule({
-  declarations: [
-    PointsComponent
-  ],
+  // declarations: [
+    
+  // ],
   imports: [
     CommonModule
   ]

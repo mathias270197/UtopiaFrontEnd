@@ -1,16 +1,17 @@
 import { Component, OnInit, Renderer2 } from '@angular/core';
-import { GraduateProgramService } from '../model/graduate-programe.service';
-import { GraduateProgram } from '../model/graduate-program';
-import { Question } from '../model/question';
+import { GraduateProgramService } from '../../model/graduate-programe.service';
+import { GraduateProgram } from '../../model/graduate-program';
+import { Question } from '../../model/question';
 import { Subscription, timer } from 'rxjs';
-import { Faculty } from '../model/faculty';
-import { CoordinatesService } from '../model/coordinates.service';
-import { LocalStorageService } from '../local-storage/local-storage.service';
+import { Faculty } from '../../model/faculty';
+import { CoordinatesService } from '../../model/coordinates.service';
+import { LocalStorageService } from '../../local-storage/local-storage.service';
 import { Router } from '@angular/router';
 import { BlockList } from 'net';
-import { Person } from '../login/person';
-import { Answer } from './answer';
-import { FormService } from './form.service';
+import { Person } from '../../login/person';
+import { Answer } from '..//answer';
+import { FormService } from '../form.service';
+import { PointsComponent } from '../../points/points/points.component';
 
 @Component({
   selector: 'app-form-template',

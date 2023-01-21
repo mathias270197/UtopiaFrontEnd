@@ -48,9 +48,9 @@ export class LocalStorageService {
   }
 
   public addUserWithZeroPointsIfUserNotExists(userName: string) {
-    if (localStorage.getItem(userName) === null) {
+    // if (localStorage.getItem(userName) === null) {
       localStorage.setItem(userName, "0");
-    }
+    // }
   }
 
   public lookupPointsOfUser( userName: string) {

@@ -7,6 +7,7 @@ import { NeighbourhoodComponent } from './neighbourhood/neighbourhood.component'
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MetrolineComponent } from '../metroline/metroline/metroline.component';
 import { PointsComponent } from '../points/points/points.component';
+import { PointsModule } from '../points/points.module';
 
 
 
@@ -18,14 +19,11 @@ import { PointsComponent } from '../points/points/points.component';
     StationComponent,
     NeighbourhoodComponent,
     MetrolineComponent,
-    PointsComponent
-  
-   
   ],
   imports: [
     CommonModule,
     NgbModule,
-   
+    PointsModule
   ],
   schemas:[
     CUSTOM_ELEMENTS_SCHEMA,

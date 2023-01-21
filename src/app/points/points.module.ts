@@ -5,11 +5,14 @@ import { PointsComponent } from './points/points.component';
 
 
 @NgModule({
-  // declarations: [
-    
-  // ],
+  declarations: [
+    PointsComponent
+  ],
   imports: [
     CommonModule
+  ],
+  exports: [
+    PointsComponent
   ]
 })
 export class PointsModule { }

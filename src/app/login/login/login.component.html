@@ -2,17 +2,30 @@
     *ngIf="isSubmitted && errorMessage">
     {{errorMessage}}
 </div> -->
-<img class="img-fluid mb-2" src="../assets/images/logo.png" alt="">
+<div class="container my-5">
+    <div class="row d-flex justify-content-center">
 
-<form (ngSubmit)="onSubmit()" #categoryForm="ngForm">
-    <div class="mb-6">
-        <label for="name" class="block mb-2 text-sm font-medium text-gray-900 ">Name</label>
-        <input type="name" id="name" name="name"
-            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-            placeholder="Name" [(ngModel)]="userName" #name="ngModel">
-        <div [hidden]="name.valid || name.pristine" class="text-red-500 mt-2">Name is required</div>
+        <div id="bg"></div>
+        <div class="mt-5 p-4 text-center animated fadeIn">
+            <form (ngSubmit)="onSubmit()" #categoryForm="ngForm">
+                <span class="login100-form-title p-b-70">Welkom</span>
+                <span class="login100-form-avatar">
+                    <p><i class="fa-solid fa-circle-user fa-8x"></i></p>
+                </span>
+                <div class="wrap-input100 validate-input m-t-85 m-b-35">
+                    <input type="name" id="name" name="name"
+                        class="input100"
+                        placeholder="Name" [(ngModel)]="userName" #name="ngModel">
+                    <div [hidden]="name.valid || name.pristine" class="">Name is required</div>
+                    <span class="focus-input100">
+                    </span>
+                </div>
+                <div class="container-login100-form-btn">
+                <button type="submit"
+                    class="login100-form-btn">Start</button>
+                </div>
+            </form>
+        </div>
     </div>
 
-    <button type="submit"
-        class="text-white bg-blue-700 enabled:hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center disabled:opacity-75">Start</button>
-</form>
+</div>

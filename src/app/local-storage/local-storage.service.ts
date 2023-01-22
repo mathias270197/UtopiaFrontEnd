@@ -53,34 +53,39 @@ export class LocalStorageService {
     // }
   }
 
-  public lookupPointsOfUser( userName: string) {
-    var pointsAsString = localStorage.getItem(userName);
-    if (pointsAsString === null) {
-      pointsAsString = "0";
-    }
-    var pointsAsNumber = parseInt(pointsAsString)
+  public lookupPointsOfUser(userName: string) {
+    let stations = this.getCompletedStations();
+    let pointsAsNumber: number = 0;
+    for (let i = 0; i < stations.length; i++) {
+      pointsAsNumber += stations[i].score;
+    };
+    localStorage.setItem(userName, pointsAsNumber.toString());
+
     return pointsAsNumber
   }
 
-  public lookupPointsOfCurrentUser() {
-    var currentUserName = localStorage.getItem("currentUserName");
-    if (currentUserName === null) {
-      currentUserName = "";
-    }
-    var points = this.lookupPointsOfUser(currentUserName)
-    return points
-  }
+  // public lookupPointsOfCurrentUser() {
+  //   var currentUserName = localStorage.getItem("currentUserName");
+  //   if (currentUserName === null) {
+  //     currentUserName = "";
+  //   }
+  //   var points = this.lookupPointsOfUser(currentUserName)
+  //   return points
+  // }
 
 
-  public addPointsToCurrentUser(points: number ) {
-    var currentUserName = localStorage.getItem("currentUserName");
-    if (currentUserName === null) {
-      currentUserName = "";
-    }
-    var UserPoints = this.lookupPointsOfCurrentUser();
-    UserPoints += points;
-    localStorage.setItem(currentUserName, UserPoints.toString());
-  }
+  // public addPointsToCurrentUser() {
+  //   var currentUserName = localStorage.getItem("currentUserName");
+  //   if (currentUserName === null) {
+  //     currentUserName = "";
+  //   }
+  //   let stations = this.getCompletedStations();
+  //   let UserPoints: number = 0;
+  //   for (let i = 0; i < stations.length; i++) {
+  //     UserPoints += stations[i].score;
+  //   };
+  //   localStorage.setItem(currentUserName, UserPoints.toString());
+  // }
   
 
   public setLines(lines: any) {

@@ -25,6 +25,7 @@ export class MetrolineComponent implements OnInit {
   notCompletedStationColor: string = "white";
   activeStationId: number = 0;
   completedStations: any[] = [];
+  textColor: string = 'black';
 
   blinkingDuration: number = 500; // in milliseconds
   sleep = (blinkingDuration: number) => new Promise(r => setTimeout(r, blinkingDuration));
@@ -52,6 +53,8 @@ export class MetrolineComponent implements OnInit {
 
     this.activeline = this.lines[this.activeLineID]
     console.log('active line', this.activeline)
+    console.log('De actieve lijn kleur: ' + this.lines[this.activeLineID].color);
+    this.defineTextColor(this.lines[this.activeLineID].color);
     this.stations = this.lines[this.activeLineID].stations
     console.log(this.stations)
 
@@ -197,6 +200,14 @@ export class MetrolineComponent implements OnInit {
       hasConnection = true;
     }
     return hasConnection
+  }
+
+  defineTextColor(lineColor: string) {
+    if (lineColor == 'blue' || lineColor == 'green' || lineColor == 'red') {
+      this.textColor = 'white';
+    } else {
+      this.textColor = 'black';
+    }
   }
 
 }

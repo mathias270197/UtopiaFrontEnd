@@ -5,7 +5,7 @@
     margin-bottom: 10px;
     margin-top: 10px;
     text-align: center;
-    background-color: lightgrey;
+    background-color: $vertlightgrey;
     border: 1px solid black;
     width: 100%;
 }
@@ -13,9 +13,7 @@
 // Styling loading bar
 .loadingbar {
     height: 2px;
-    // width: 50%;
     box-shadow: none;
-    // padding-right: 12px !important;
 }
 
 .loadingbar[disabled] {
@@ -23,9 +21,10 @@
     background-clip: content-box;
 }
 
-// .loadingbar.launch-btn {
-//     border: none;
-//     transition: all 0.1s ease-in;
-//     // width: 500px;
-// }
+button {
+    background-color: $vertlightgrey;
+    border: 1px solid black;
+    color: black
+} 
+
 

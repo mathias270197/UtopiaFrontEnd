@@ -28,3 +28,9 @@ body {
 .activestation {
     background-color: black;
 }
+
+@media (min-width: 20px) {
+    .container {
+        max-width: 400px
+    }
+}

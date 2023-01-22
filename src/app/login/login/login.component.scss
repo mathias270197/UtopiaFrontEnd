@@ -1,3 +1,6 @@
+@import '../../../variables';
+
+
 @keyframes animatedBackground {
     from {
       background-position: 0 0;
@@ -15,13 +18,12 @@
     height: 100%;
     background-size: cover;
     background-repeat: repeat-x;
-    animation: animatedBackground 15s ease infinite alternate;
+    animation: animatedBackground 10s ease infinite alternate;
     filter: blur(5px);
     z-index: -1;
 }
 
 .login100-form-btn {
-    font-family: Poppins-Medium;
     font-size: 16px;
     color: rgb(0, 0, 0);
     line-height: 1.2;
@@ -36,7 +38,7 @@
     padding: 0 20px;
     width: 100%;
     height: 50px;
-    background-color: #F5F5DC;
+    background-color: $vertlightgrey;
     border-radius: 25px;
     box-shadow: 0 10px 30px 0 rgba(174, 190, 171, 0.5);
     -moz-box-shadow: 0 10px 30px 0 rgba(182, 206, 178, 0.5);
@@ -57,7 +59,6 @@ button {
 
 .login100-form-title {
     display: block;
-    font-family: Poppins-Bold;
     font-size: 39px;
     color: #333;
     line-height: 1.2;
@@ -80,7 +81,8 @@ button {
 .wrap-input100 {
     width: 100%;
     position: relative;
-    border-bottom: 2px solid #d9d9d9;
+    // border-bottom: 2px solid #d9d9d9;
+    background-color: $vertlightgrey;
 }
 
 .m-b-35 {
@@ -92,7 +94,6 @@ button {
 }
 
 .input100 {
-    font-family: Poppins-SemiBold;
     font-size: 18px;
     color: #555;
     line-height: 1.2;
@@ -129,7 +130,6 @@ button {
 }
 
 .focus-input100::after {
-    font-family: Poppins-Medium;
     font-size: 18px;
     color: #999;
     line-height: 1.2;

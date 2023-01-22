@@ -254,8 +254,8 @@ export class FormTemplateComponent implements OnInit {
       console.log("correct aantal antwoorden: " + this.correctAnswerCounter);
       console.log("tijd over: " + this.timeLeft);
 
-      // Store in the backend
-      this.points = this.calculateAndStorePoints(this.correctAnswerCounter, this.timeLeft);
+      // Calculate the points for this 
+      this.points = this.calculatePoints(this.correctAnswerCounter, this.timeLeft);
 
       // Store in the local storage
       let completedStations: any[] = this.localStorageService.getCompletedStations();
@@ -283,15 +283,15 @@ export class FormTemplateComponent implements OnInit {
       }
       this.localStorageService.setCompletedStations(completedStations);
       this.hasEscaped = true;
+
     } else {
       this.hasEscaped = false;
     }
   }
 
-  calculateAndStorePoints(correctAnswerCounter: number, timeLeft: number) {
+  calculatePoints(correctAnswerCounter: number, timeLeft: number) {
     var multiplier = Math.round(timeLeft / 10) + 10 //number between 10 and 20
     var points = correctAnswerCounter * multiplier //number between 0 200
-    this.localStorageService.addPointsToCurrentUser(points);
     return points;
   }
 
@@ -310,7 +310,7 @@ export class FormTemplateComponent implements OnInit {
       Person: person
     }
     this.postAnswer$ = this.formService.postAnswer(answer).subscribe({
-      next: (v) => this.router.navigateByUrl("/admin/category"),
+      // next: (v) => this.router.navigateByUrl("/admin/category"),
       error: (e) => console.log(e.message)
     });
   }

@@ -1,15 +1,18 @@
-<div [style.backgroundColor]="activeline.color" ngClass="activeline">{{faculties[activeline.lineId].name}}</div>
+<div [style.backgroundColor]="activeline.color" [style.color]="textColor" ngClass="activeline">
+  {{faculties[activeline.lineId].name}}</div>
 <div class="">
   <div *ngFor="let st of graduatePrograms" class="row mt-2 mb-2">
-    <div (click)="goToStation(st.graduateProgramId)" class="col-8"><button class="button-gp"
-        [ngStyle]="{backgroundColor: st.graduateProgramId === activeStationId ? activeline.color : 'white'}">{{st.name}}</button>
-    </div>
-    <div (click)="goToForm()" *ngIf="st.graduateProgramId === activeStationId" class="col-2"><button
-        [ngStyle]="{backgroundColor: st.graduateProgramId === activeStationId ? activeline.color : 'white'}"><i
-          class="fa-regular fa-circle-down"></i></button></div>
-    <div *ngIf="st.graduateProgramId != activeStationId" class="col-2"><button
+
+    <div (click)="goToForm()" *ngIf="st.graduateProgramId === activeStationId" class="col-1"><button
+        [ngStyle]="{backgroundColor: st.graduateProgramId === activeStationId ? activeline.color : 'white'}"
+        [style.color]="textColor"><i class="fa-regular fa-circle-down"></i></button></div>
+    <div *ngIf="st.graduateProgramId != activeStationId" class="col-1"><button
         [ngStyle]="{backgroundColor: st.graduateProgramId === activeStationId ? 'lightgrey' : 'white'}"><i
           class="fa-solid fa-ban"></i></button></div>
+    <div (click)="goToStation(st.graduateProgramId)" class="col-9"><button class="button-gp"
+        [ngStyle]="{backgroundColor: st.graduateProgramId === activeStationId ? activeline.color : 'white'}"
+        [style.color]="st.graduateProgramId === activeStationId ? textColor : 'black'">{{st.name}}</button>
+    </div>
     <div *ngIf="st.connection != null" class="col-2"><button [disabled]="st.graduateProgramId != activeStationId"
         class="switchline" (click)="changeLine(st.connection.lineId)"
         [style.backgroundColor]="lines[st.connection.lineId].color"><i

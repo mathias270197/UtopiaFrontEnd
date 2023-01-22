@@ -10,7 +10,7 @@
 
     </div>
     <div class="text-center mt-3">
-        <h3>Vraag nr {{questionDisplayIndex}}/{{graduateProgram.questions.length}}</h3>
+        <h3>Vraag {{questionDisplayIndex}}/{{graduateProgram.questions.length}}</h3>
         <p>{{currentQuestion.textualQuestion}}</p>
         <div *ngFor="let answer of currentQuestion.multipleChoiceAnswers">
             <button id="" class="answer-btn btn btn-primary" [disabled]="disabled"

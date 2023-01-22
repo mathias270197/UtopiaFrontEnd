@@ -10,6 +10,6 @@ export class PointsService {
   constructor(private localStorageService: LocalStorageService) { }
   
   getPoints() {
-    return  this.localStorageService.lookupPointsOfCurrentUser()
+    return  this.localStorageService.lookupPointsOfUser(this.localStorageService.getCurrentUserName()!)
   }
 }

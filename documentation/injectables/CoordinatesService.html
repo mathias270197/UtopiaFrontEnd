@@ -1,0 +1,758 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>utopia documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">utopia documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content injectable">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li>Injectables</li>
+  <li >CoordinatesService</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/app/model/coordinates.service.ts</code>
+        </p>
+
+
+
+
+
+            <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#defaultLines" >defaultLines</a>
+                            </li>
+                            <li>
+                                <a href="#faculties" >faculties</a>
+                            </li>
+                            <li>
+                                <a href="#faculties$" >faculties$</a>
+                            </li>
+                            <li>
+                                <a href="#metroline" >metroline</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#getCoordinates" >getCoordinates</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+            <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(graduateProgramService: <a href="../injectables/GraduateProgramService.html" target="_self">GraduateProgramService</a>, localStorageService: <a href="../injectables/LocalStorageService.html" target="_self">LocalStorageService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">src/app/model/coordinates.service.ts:10</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>graduateProgramService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/GraduateProgramService.html" target="_self" >GraduateProgramService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>localStorageService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/LocalStorageService.html" target="_self" >LocalStorageService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+            <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getCoordinates"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>getCoordinates</b></span>
+                        <a href="#getCoordinates"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getCoordinates()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="108"
+                            class="link-to-prism">src/app/model/coordinates.service.ts:108</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+            <section>
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="defaultLines"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>defaultLines</b></span>
+                        <a href="#defaultLines"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[
+    {
+      id: 0,
+      color: &quot;red&quot;,
+      x: [20, 20, 48, 64, 81, 102, 129, 140, 150, 155],
+      y: [17, 52, 80, 80, 80, 80, 80, 85, 85, 75],
+      fillUpOrder: [2, 5, 6, 8, 0, 4, 1, 9, 7, 3],      
+      connection: [null, null, {lineId: 3, stationId: 3} , null, null, {lineId: 1, stationId: 6}, {lineId: 2, stationId: 7}, null, {lineId: 4, stationId: 4}, null],
+    },
+    {
+      id: 1,
+      color: &quot;green&quot;,
+      x: [65, 65, 65, 65, 70, 95, 102, 120, 120, 126],
+      y: [10, 31, 48, 56, 62, 62, 80, 88, 117, 124],
+      fillUpOrder: [6, 2, 7, 9, 0, 5, 8, 3, 4, 1], 
+      connection: [null, null, {lineId: 3, stationId: 5}, null, null, null, {lineId: 0, stationId: 5}, {lineId: 2, stationId: 6}, null, {lineId: 4, stationId: 2}],
+    },
+    {
+      id: 2,
+      color: &quot;blue&quot;,
+      x: [5, 32, 43, 81, 91, 103, 120, 129, 129, 150],
+      y: [125, 98, 98, 98, 98, 88, 88, 80, 65, 45],
+      fillUpOrder: [7, 6, 2, 8, 0, 9, 5, 4, 3, 1],   
+      connection: [null, null, {lineId: 3, stationId: 1}, null, null, null, {lineId: 1, stationId: 7}, {lineId: 0, stationId: 6}, {lineId: 4, stationId: 5}, null],
+    },
+    {
+      id: 3,
+      color: &quot;yellow&quot;,
+      x: [43, 43, 48, 48, 48, 65, 87, 104, 114, 114],
+      y: [118, 98, 90, 80, 62, 48, 48, 48, 38, 18],
+      fillUpOrder: [3, 5, 1, 9, 0, 8, 7, 4, 2, 6],
+      connection: [null, {lineId: 2, stationId: 2}, null, {lineId: 0, stationId: 2}, null, {lineId: 1, stationId: 2}, null, null, null, null],
+    },
+    {
+      id: 4,
+      color: &quot;orange&quot;,
+      x: [94, 110, 126, 150, 150, 129, 125, 125, 133, 133],
+      y: [156, 140, 124, 100, 85, 65, 60, 48, 40, 20],
+      fillUpOrder: [4, 2, 5, 9, 0, 7, 8, 3, 1, 6],
+      connection: [null, null, {lineId: 1, stationId: 9}, null, {lineId: 0, stationId: 8}, {lineId: 2, stationId: 8}, null, null, null, null],
+    },
+    // {
+    //   id: 5,
+    //   color: &quot;purple&quot;,
+    //   x: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    //   y: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    //   fillUpOrder: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+    //   connection: [null, null, null, null, null, null, null, null, null, null],
+    // },
+    // {
+    //   id: 6,
+    //   color: &quot;brown&quot;,
+    //   x: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    //   y: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    //   fillUpOrder: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+    //   connection: [null, null, null, null, null, null, null, null, null, null],
+    // },
+    // {
+    //   id: 7,
+    //   color: &quot;pink&quot;,
+    //   x: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    //   y: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    //   fillUpOrder: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+    //   connection: [null, null, null, null, null, null, null, null, null, null],
+    // },
+    // {
+    //   id: 8,
+    //   color: &quot;violet&quot;,
+    //   x: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    //   y: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    //   fillUpOrder: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+    //   connection: [null, null, null, null, null, null, null, null, null, null],
+    // },
+    // {
+    //   id: 9,
+    //   color: &quot;black&quot;,
+    //   x: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    //   y: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    //   fillUpOrder: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+    //   connection: [null, null, null, null, null, null, null, null, null, null],
+    // },
+  ]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/model/coordinates.service.ts:18</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="faculties"></a>
+                    <span class="name">
+                        <span ><b>faculties</b></span>
+                        <a href="#faculties"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/Faculty.html" target="_self" >Faculty[]</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="102" class="link-to-prism">src/app/model/coordinates.service.ts:102</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="faculties$"></a>
+                    <span class="name">
+                        <span ><b>faculties$</b></span>
+                        <a href="#faculties$"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>Subscription</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new Subscription()</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="103" class="link-to-prism">src/app/model/coordinates.service.ts:103</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="metroline"></a>
+                    <span class="name">
+                        <span ><b>metroline</b></span>
+                        <a href="#metroline"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="105" class="link-to-prism">src/app/model/coordinates.service.ts:105</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@angular/core&#x27;;
+import { Subscription } from &#x27;rxjs&#x27;;
+import { LocalStorageService } from &#x27;../local-storage/local-storage.service&#x27;;
+import { Faculty } from &#x27;./faculty&#x27;;
+import { GraduateProgramService } from &#x27;./graduate-programe.service&#x27;;
+
+@Injectable({
+  providedIn: &#x27;root&#x27;
+})
+export class CoordinatesService {
+
+  constructor(private graduateProgramService: GraduateProgramService, private localStorageService: LocalStorageService) { }
+
+  // The &#x27;defaultLines&#x27; variable contains the hardcoded default relative coordinates for the metro map
+  // With &#x27;x&#x27; and &#x27;y&#x27; you can draw the line from the start station until the end station of the line.
+  // With &#x27;fillUpOrder&#x27; you can define in which order the stations are placed on the line.
+  // Connection defines to which other lines you can connect. The null means there is no connection. An object including {lineId: 4, stationId: 3} indicates a connection.
+  private defaultLines: any &#x3D; [
+    {
+      id: 0,
+      color: &quot;red&quot;,
+      x: [20, 20, 48, 64, 81, 102, 129, 140, 150, 155],
+      y: [17, 52, 80, 80, 80, 80, 80, 85, 85, 75],
+      fillUpOrder: [2, 5, 6, 8, 0, 4, 1, 9, 7, 3],      
+      connection: [null, null, {lineId: 3, stationId: 3} , null, null, {lineId: 1, stationId: 6}, {lineId: 2, stationId: 7}, null, {lineId: 4, stationId: 4}, null],
+    },
+    {
+      id: 1,
+      color: &quot;green&quot;,
+      x: [65, 65, 65, 65, 70, 95, 102, 120, 120, 126],
+      y: [10, 31, 48, 56, 62, 62, 80, 88, 117, 124],
+      fillUpOrder: [6, 2, 7, 9, 0, 5, 8, 3, 4, 1], 
+      connection: [null, null, {lineId: 3, stationId: 5}, null, null, null, {lineId: 0, stationId: 5}, {lineId: 2, stationId: 6}, null, {lineId: 4, stationId: 2}],
+    },
+    {
+      id: 2,
+      color: &quot;blue&quot;,
+      x: [5, 32, 43, 81, 91, 103, 120, 129, 129, 150],
+      y: [125, 98, 98, 98, 98, 88, 88, 80, 65, 45],
+      fillUpOrder: [7, 6, 2, 8, 0, 9, 5, 4, 3, 1],   
+      connection: [null, null, {lineId: 3, stationId: 1}, null, null, null, {lineId: 1, stationId: 7}, {lineId: 0, stationId: 6}, {lineId: 4, stationId: 5}, null],
+    },
+    {
+      id: 3,
+      color: &quot;yellow&quot;,
+      x: [43, 43, 48, 48, 48, 65, 87, 104, 114, 114],
+      y: [118, 98, 90, 80, 62, 48, 48, 48, 38, 18],
+      fillUpOrder: [3, 5, 1, 9, 0, 8, 7, 4, 2, 6],
+      connection: [null, {lineId: 2, stationId: 2}, null, {lineId: 0, stationId: 2}, null, {lineId: 1, stationId: 2}, null, null, null, null],
+    },
+    {
+      id: 4,
+      color: &quot;orange&quot;,
+      x: [94, 110, 126, 150, 150, 129, 125, 125, 133, 133],
+      y: [156, 140, 124, 100, 85, 65, 60, 48, 40, 20],
+      fillUpOrder: [4, 2, 5, 9, 0, 7, 8, 3, 1, 6],
+      connection: [null, null, {lineId: 1, stationId: 9}, null, {lineId: 0, stationId: 8}, {lineId: 2, stationId: 8}, null, null, null, null],
+    },
+    // {
+    //   id: 5,
+    //   color: &quot;purple&quot;,
+    //   x: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    //   y: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    //   fillUpOrder: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+    //   connection: [null, null, null, null, null, null, null, null, null, null],
+    // },
+    // {
+    //   id: 6,
+    //   color: &quot;brown&quot;,
+    //   x: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    //   y: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    //   fillUpOrder: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+    //   connection: [null, null, null, null, null, null, null, null, null, null],
+    // },
+    // {
+    //   id: 7,
+    //   color: &quot;pink&quot;,
+    //   x: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    //   y: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    //   fillUpOrder: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+    //   connection: [null, null, null, null, null, null, null, null, null, null],
+    // },
+    // {
+    //   id: 8,
+    //   color: &quot;violet&quot;,
+    //   x: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    //   y: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    //   fillUpOrder: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+    //   connection: [null, null, null, null, null, null, null, null, null, null],
+    // },
+    // {
+    //   id: 9,
+    //   color: &quot;black&quot;,
+    //   x: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    //   y: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    //   fillUpOrder: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+    //   connection: [null, null, null, null, null, null, null, null, null, null],
+    // },
+  ]
+
+  // Some variables
+  faculties: Faculty[] &#x3D; [];
+  faculties$: Subscription &#x3D; new Subscription();
+
+  metroline: string &#x3D; &#x27;&#x27;;
+
+  // Function to calculate the metro map &#x3D;&gt; hardcoded!
+  async getCoordinates() {
+    // // Collect the faculties asynchronously
+    // this.faculties$ &#x3D; this.graduateProgramService.getFaculties().subscribe(faculties &#x3D;&gt; {
+    //   this.faculties &#x3D; faculties;
+    // });
+
+    // Collect the faculties synchronously 
+    this.faculties &#x3D; await this.graduateProgramService.getFacultiesSync();
+    console.log(&#x27;Faculties array&#x27;);
+    console.log(this.faculties);
+    // Initiate the div for the metromap
+    var metromap: string &#x3D; &#x27;&lt;div class&#x3D;&quot;map-svg d-flex p-2&quot;&gt;&lt;svg xmlns&#x3D;&quot;http://www.w3.org/2000/svg&quot; x&#x3D;&quot;0px&quot; y&#x3D;&quot;0px&quot; viewBox&#x3D;&quot;0 0 160 160&quot;&gt;&#x27;;
+    // Variable to collect all the lines
+    let lines: any[] &#x3D; [];
+    // For every line
+    for (let i &#x3D; 0; i &lt; this.faculties.length; i++) {
+      // Initiate a new polyline
+      metromap +&#x3D; &#x27;&lt;polyline points&#x3D;&quot;&#x27;;
+      let stations: any &#x3D; [];
+      // Draw the line first
+      for (let j &#x3D; 0; j &lt; this.defaultLines[i].x.length; j++) {
+        // Set the template for this station, including a null for the graduateProgramId
+        let tempStation &#x3D; {
+          graduateProgramId: null,
+          name: null,
+          x: this.defaultLines[i].x[j],
+          y: this.defaultLines[i].y[j],
+          connection: this.defaultLines[i].connection[j]
+        }
+        // Push the station into the stations array
+        stations.push(tempStation);
+        // Add the points to the polyline
+        metromap +&#x3D; this.defaultLines[i].x[j] + &#x27;,&#x27; + this.defaultLines[i].y[j] + &#x27; &#x27;;
+      }
+      // Terminiate this polyline
+      metromap +&#x3D; &#x27;&quot; style&#x3D;&quot;fill:none;stroke:&#x27; + this.defaultLines[i].color + &#x27;;stroke-width:1&quot;/&gt;&#x27;;
+      // Initiate the visible stations for this line
+      metromap +&#x3D; &#x27;&lt;g id&#x3D;&quot;stops&quot; fill&#x3D;&quot;#FFF&quot; stroke&#x3D;&quot;black&quot;&gt;&#x27;;
+      // Now fill up the n-faculty stations with the graduateProgramIds
+      for (let k &#x3D; 0; k &lt; this.faculties[i].graduatePrograms.length; k++) {
+        // Get the index of the station that is next in line to be filled up
+        let next &#x3D; this.defaultLines[i].fillUpOrder[k];
+        // Put the graduateProgramId into that specific station
+        stations[next].graduateProgramId &#x3D; this.faculties[i].graduatePrograms[k].id;
+        // Add the name to the station
+        stations[next].name &#x3D; this.faculties[i].graduatePrograms[k].name;
+        // Insert the visible station in the metromap
+        metromap +&#x3D; &#x27;&lt;circle id&#x3D;&quot;gp_&#x27; + this.faculties[i].graduatePrograms[k].id + &#x27;&quot; class&#x3D;&quot;station&quot; cx&#x3D;&quot;&#x27; + this.defaultLines[i].x[next] + &#x27;&quot; cy&#x3D;&quot;&#x27; + this.defaultLines[i].y[next] +&#x27;&quot; r&#x3D;&quot;2&quot; stroke-width&#x3D;&quot;1&quot; fill&#x3D;&quot;white&quot; /&gt;&#x27;
+      }
+      // Terminate the visible stations
+      metromap +&#x3D; &#x27;&lt;/g&gt;&#x27;;
+      // set the template for this line
+      let tempLine &#x3D; {
+        lineId: i,
+        color: this.defaultLines[i].color,
+        stations: stations,
+      }
+      // Push the line into the lines array
+      lines.push(tempLine)
+    }
+
+    console.log(&#x27;Lines: &#x27;);
+    console.log(lines)
+    metromap +&#x3D; &#x27;&lt;/svg&gt;&lt;/div&gt;&#x27;;
+    // console.log(&#x27;Metromap: &#x27;);
+    // console.log(metromap)
+
+    this.localStorageService.setLines(lines);
+    this.localStorageService.setMetromap(metromap);
+
+    // return metromap
+
+  }
+
+  // calculateMetroMap() {
+  //   this.getCoordinates();
+  //   console.log(&#x27;Faculties array&#x27;);
+  //   console.log(this.faculties);
+  //   // Initiate the div  for the metromap
+  //   var metromap: String &#x3D; &#x27;&lt;div class&#x3D;&quot;map-svg d-flex p-2&quot;&gt;&lt;svg xmlns&#x3D;&quot;http://www.w3.org/2000/svg&quot; x&#x3D;&quot;0px&quot; y&#x3D;&quot;0px&quot; viewBox&#x3D;&quot;0 0 170 180&quot;&gt;&#x27;;
+  //   let lines: any[] &#x3D; [];
+  //   // For every line
+  //   for (let i &#x3D; 0; i &lt; this.faculties.length; i++) {
+  //     // Initiate the polyline
+  //     metromap +&#x3D; &#x27;&lt;polyline points&#x3D;&quot;&#x27;;
+  //     let stations: any &#x3D; [];
+  //     // Draw the line first
+  //     for (let j &#x3D; 0; j &lt; this.defaultLines[i].x.length; j++) {
+  //       // Set the template for this station, including a null for the graduateProgramId
+  //       let tempStation &#x3D; {
+  //         graduateProgramId: null,
+  //         x: this.defaultLines[i].x[j],
+  //         y: this.defaultLines[i].y[j],
+  //       }
+  //       // Push the station into the stations array
+  //       stations.push(tempStation);
+  //     }
+  //     // Terminiate the polyline
+  //     metromap +&#x3D; &#x27;&quot; style&#x3D;&quot;fill:none;stroke:green;stroke-width:2&quot; /&gt;&#x27;;
+  //     // Now fill up the n-faculty stations with the graduateProgramIds
+  //     for (let k &#x3D; 0; k &lt; this.faculties[i].graduatePrograms.length; k++) {
+  //       // Get the index of the station that is next in line to be filled up
+  //       let next &#x3D; this.defaultLines[i].fillUpOrder[k];
+  //       // Put the graduateProgramId into that specific station
+  //       stations[next].graduateProgramId &#x3D; this.faculties[i].graduatePrograms[k].id;
+  //     }
+  //     // set the template for this line
+  //     let tempLine &#x3D; {
+  //       lineId: i,
+  //       color: this.defaultLines[i].color,
+  //       stations: stations,
+  //     }
+  //     // Push the line into the lines array
+  //     lines.push(tempLine)
+  //   }
+
+  //   // metromap +&#x3D; &#x27;&lt;p&gt;test&lt;/p&gt;&#x27;;
+  //   // metromap +&#x3D; &#x27;&lt;/svg&gt;&lt;/div&gt;&#x27;;
+  //   console.log(&#x27;Lines: &#x27;);
+  //   console.log(lines)
+
+
+  //   metromap +&#x3D; &#x27;&lt;p&gt;test&lt;/p&gt;&lt;/svg&gt;&lt;/div&gt;&#x27;;
+  //   console.log(&#x27;Metromap: &#x27;);
+  //   console.log(metromap)
+
+  //   return metromap
+
+  // }
+
+
+}
+</code></pre>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
+            var COMPODOC_CURRENT_PAGE_URL = 'CoordinatesService.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

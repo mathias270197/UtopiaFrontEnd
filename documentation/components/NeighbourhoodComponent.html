@@ -1,0 +1,1230 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>utopia documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">utopia documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li
+  >
+  NeighbourhoodComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li >
+            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li >
+            <a href="#styleData" role="tab" id="styleData-tab" data-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li >
+            <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/rail-map/neighbourhood/neighbourhood.component.ts</code>
+</p>
+
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                    <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
+    </p>
+
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-neighbourhood</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./neighbourhood.component.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./neighbourhood.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#buildings" >buildings</a>
+                            </li>
+                            <li>
+                                <a href="#buildings$" >buildings$</a>
+                            </li>
+                            <li>
+                                <a href="#buildingsImg" >buildingsImg</a>
+                            </li>
+                            <li>
+                                <a href="#cordsBuilding1" >cordsBuilding1</a>
+                            </li>
+                            <li>
+                                <a href="#cordsBuilding2Version1" >cordsBuilding2Version1</a>
+                            </li>
+                            <li>
+                                <a href="#cordsBuilding2Version2" >cordsBuilding2Version2</a>
+                            </li>
+                            <li>
+                                <a href="#cordsBuilding3" >cordsBuilding3</a>
+                            </li>
+                            <li>
+                                <a href="#errorMessage" >errorMessage</a>
+                            </li>
+                            <li>
+                                <a href="#neighbourhoodImg" >neighbourhoodImg</a>
+                            </li>
+                            <li>
+                                <a href="#numberOfBuildings" >numberOfBuildings</a>
+                            </li>
+                            <li>
+                                <a href="#numberOfBuildingsIs2" >numberOfBuildingsIs2</a>
+                            </li>
+                            <li>
+                                <a href="#numberOfBuildingsIs3" >numberOfBuildingsIs3</a>
+                            </li>
+                            <li>
+                                <a href="#scale" >scale</a>
+                            </li>
+                            <li>
+                                <a href="#stationId" >stationId</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#ChangeViewport" >ChangeViewport</a>
+                            </li>
+                            <li>
+                                <a href="#GetEscapeRoomsOfStation" >GetEscapeRoomsOfStation</a>
+                            </li>
+                            <li>
+                                <a href="#NavigateToForm" >NavigateToForm</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(ngbAlertConfig: NgbAlertConfig, stationService: <a href="../injectables/StationService.html" target="_self">StationService</a>, router: <a href="https://angular.io/api/router/Router" target="_blank">Router</a>, cd: <a href="https://angular.io/api/core/ChangeDetectorRef" target="_blank">ChangeDetectorRef</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">src/app/rail-map/neighbourhood/neighbourhood.component.ts:32</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>ngbAlertConfig</td>
+                                                  
+                                                        <td>
+                                                                    <code>NgbAlertConfig</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>stationService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/StationService.html" target="_self" >StationService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>router</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://angular.io/api/router/Router" target="_blank" >Router</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>cd</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://angular.io/api/core/ChangeDetectorRef" target="_blank" >ChangeDetectorRef</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ChangeViewport"></a>
+                    <span class="name">
+                        <span ><b>ChangeViewport</b></span>
+                        <a href="#ChangeViewport"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ChangeViewport()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="62"
+                            class="link-to-prism">src/app/rail-map/neighbourhood/neighbourhood.component.ts:62</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="GetEscapeRoomsOfStation"></a>
+                    <span class="name">
+                        <span ><b>GetEscapeRoomsOfStation</b></span>
+                        <a href="#GetEscapeRoomsOfStation"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>GetEscapeRoomsOfStation(stationId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="85"
+                            class="link-to-prism">src/app/rail-map/neighbourhood/neighbourhood.component.ts:85</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>stationId</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="NavigateToForm"></a>
+                    <span class="name">
+                        <span ><b>NavigateToForm</b></span>
+                        <a href="#NavigateToForm"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>NavigateToForm(buildingId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="89"
+                            class="link-to-prism">src/app/rail-map/neighbourhood/neighbourhood.component.ts:89</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>buildingId</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="44"
+                            class="link-to-prism">src/app/rail-map/neighbourhood/neighbourhood.component.ts:44</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section>
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="buildings"></a>
+                    <span class="name">
+                        <span ><b>buildings</b></span>
+                        <a href="#buildings"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/Building.html" target="_self" >Building[]</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/rail-map/neighbourhood/neighbourhood.component.ts:15</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="buildings$"></a>
+                    <span class="name">
+                        <span ><b>buildings$</b></span>
+                        <a href="#buildings$"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>Subscription</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new Subscription()</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/rail-map/neighbourhood/neighbourhood.component.ts:16</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="buildingsImg"></a>
+                    <span class="name">
+                        <span ><b>buildingsImg</b></span>
+                        <a href="#buildingsImg"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&quot;&quot;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/app/rail-map/neighbourhood/neighbourhood.component.ts:29</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="cordsBuilding1"></a>
+                    <span class="name">
+                        <span ><b>cordsBuilding1</b></span>
+                        <a href="#cordsBuilding1"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&quot;100,160,360,420&quot;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/app/rail-map/neighbourhood/neighbourhood.component.ts:24</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="cordsBuilding2Version1"></a>
+                    <span class="name">
+                        <span ><b>cordsBuilding2Version1</b></span>
+                        <a href="#cordsBuilding2Version1"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&quot;666,95,920,360&quot;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/app/rail-map/neighbourhood/neighbourhood.component.ts:25</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="cordsBuilding2Version2"></a>
+                    <span class="name">
+                        <span ><b>cordsBuilding2Version2</b></span>
+                        <a href="#cordsBuilding2Version2"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&quot;475,130,706,369&quot;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/app/rail-map/neighbourhood/neighbourhood.component.ts:26</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="cordsBuilding3"></a>
+                    <span class="name">
+                        <span ><b>cordsBuilding3</b></span>
+                        <a href="#cordsBuilding3"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&quot;817,343,1061,581&quot;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">src/app/rail-map/neighbourhood/neighbourhood.component.ts:27</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="errorMessage"></a>
+                    <span class="name">
+                        <span ><b>errorMessage</b></span>
+                        <a href="#errorMessage"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/rail-map/neighbourhood/neighbourhood.component.ts:18</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="neighbourhoodImg"></a>
+                    <span class="name">
+                        <span ><b>neighbourhoodImg</b></span>
+                        <a href="#neighbourhoodImg"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>ElementRef | undefined</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @ViewChild(&#x27;neighbourhoodImg&#x27;)<br />
+                        </code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="83" class="link-to-prism">src/app/rail-map/neighbourhood/neighbourhood.component.ts:83</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="numberOfBuildings"></a>
+                    <span class="name">
+                        <span ><b>numberOfBuildings</b></span>
+                        <a href="#numberOfBuildings"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>0</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/app/rail-map/neighbourhood/neighbourhood.component.ts:22</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="numberOfBuildingsIs2"></a>
+                    <span class="name">
+                        <span ><b>numberOfBuildingsIs2</b></span>
+                        <a href="#numberOfBuildingsIs2"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">src/app/rail-map/neighbourhood/neighbourhood.component.ts:31</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="numberOfBuildingsIs3"></a>
+                    <span class="name">
+                        <span ><b>numberOfBuildingsIs3</b></span>
+                        <a href="#numberOfBuildingsIs3"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">src/app/rail-map/neighbourhood/neighbourhood.component.ts:32</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="scale"></a>
+                    <span class="name">
+                        <span ><b>scale</b></span>
+                        <a href="#scale"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>1</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/app/rail-map/neighbourhood/neighbourhood.component.ts:20</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="stationId"></a>
+                    <span class="name">
+                        <span ><b>stationId</b></span>
+                        <a href="#stationId"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>0</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/rail-map/neighbourhood/neighbourhood.component.ts:17</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ChangeDetectorRef, Component, ElementRef, OnInit, ViewChild } from &#x27;@angular/core&#x27;;
+import { Router } from &#x27;@angular/router&#x27;;
+import { NgbAlertConfig } from &#x27;@ng-bootstrap/ng-bootstrap&#x27;;
+import { Subscription } from &#x27;rxjs&#x27;;
+import { Building } from &#x27;../building&#x27;;
+import { StationService } from &#x27;../stations.service&#x27;;
+
+@Component({
+  selector: &#x27;app-neighbourhood&#x27;,
+  templateUrl: &#x27;./neighbourhood.component.html&#x27;,
+  styleUrls: [&#x27;./neighbourhood.component.scss&#x27;]
+})
+export class NeighbourhoodComponent implements OnInit {
+
+  buildings: Building[] &#x3D; [];
+  buildings$: Subscription &#x3D; new Subscription();
+  stationId: number &#x3D; 0;
+  errorMessage: string &#x3D; &#x27;&#x27;;
+
+  scale: number &#x3D; 1;
+
+  numberOfBuildings: number &#x3D; 0;
+
+  cordsBuilding1 : string &#x3D; &quot;100,160,360,420&quot;;
+  cordsBuilding2Version1 : string &#x3D; &quot;666,95,920,360&quot;;
+  cordsBuilding2Version2 : string &#x3D; &quot;475,130,706,369&quot;;
+  cordsBuilding3 : string &#x3D; &quot;817,343,1061,581&quot;; 
+
+  buildingsImg : string &#x3D; &quot;&quot;; 
+
+  numberOfBuildingsIs2 : boolean &#x3D; false;
+  numberOfBuildingsIs3 : boolean &#x3D; false;
+  
+
+  
+
+  constructor(ngbAlertConfig: NgbAlertConfig, private stationService: StationService,private router: Router, private cd: ChangeDetectorRef) {
+    // ngbAlertConfig.animation &#x3D; false;
+    this.stationId &#x3D; +this.router.getCurrentNavigation()?.extras.state?.[&#x27;stationId&#x27;];
+    this.GetEscapeRoomsOfStation(this.stationId);
+    this.numberOfBuildings &#x3D; +this.router.getCurrentNavigation()?.extras.state?.[&#x27;numberOfBuildings&#x27;];
+    
+   }
+  ngOnInit(): void {
+
+    switch(this.numberOfBuildings) {
+      case 2:
+        this.numberOfBuildingsIs2 &#x3D; true;
+        this.buildingsImg &#x3D; &quot;../../assets/images/neigberhood2buildings.jpg&quot;
+        break;
+      case 3:
+        this.numberOfBuildingsIs3 &#x3D; true;
+        this.buildingsImg &#x3D; &quot;../../assets/images/neigberhood3buildings.jpg&quot;
+        break;
+      default:
+        this.buildingsImg &#x3D; &quot;../../assets/images/neigberhood2buildings.jpg&quot;
+    }
+
+  }
+
+  
+  ChangeViewport(){
+    if (this.neighbourhoodImg !&#x3D; null){
+      var width &#x3D; this.neighbourhoodImg.nativeElement.offsetWidth;
+    }
+    this.scale&#x3D; Math.round(100*width/1283)/100; //1283px is the width of the img
+
+    //100, 160, 360, 400 are the coords of building1
+    this.cordsBuilding1 &#x3D; [Math.round(100*this.scale).toString(), Math.round(160*this.scale).toString(),Math.round(360*this.scale).toString(),Math.round(420*this.scale).toString(),].join(&quot;,&quot;)
+    this.cordsBuilding2Version1 &#x3D; [Math.round(666*this.scale).toString(), Math.round(95*this.scale).toString(),Math.round(920*this.scale).toString(),Math.round(360*this.scale).toString(),].join(&quot;,&quot;)
+    this.cordsBuilding2Version2 &#x3D; [Math.round(475*this.scale).toString(), Math.round(130*this.scale).toString(),Math.round(706*this.scale).toString(),Math.round(369*this.scale).toString(),].join(&quot;,&quot;)
+    this.cordsBuilding3 &#x3D; [Math.round(817*this.scale).toString(), Math.round(343*this.scale).toString(),Math.round(1061*this.scale).toString(),Math.round(581*this.scale).toString(),].join(&quot;,&quot;)
+    // 475,130,706,369
+
+    // cordsBuilding2Version2 : string &#x3D; &quot;,,,&quot;;
+    // cordsBuilding3 : string &#x3D; &quot;,,,&quot;;
+  
+  }
+
+
+  
+  @ViewChild(&#x27;neighbourhoodImg&#x27;)
+  neighbourhoodImg: ElementRef | undefined;
+
+  GetEscapeRoomsOfStation(stationId: number) {
+    this.buildings$ &#x3D; this.stationService.GetEscapeRoomsOfStation(stationId).subscribe(result &#x3D;&gt; this.buildings &#x3D; result);
+  }
+
+  NavigateToForm(buildingId: number) {
+    this.router.navigate([&#x27;/form&#x27;],{ state: {firstBuildingId: buildingId} } );
+    console.log(&quot;go to questions of building with ID: &quot; + buildingId);
+  }
+
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;p&gt;neighbourhood works! {{neighbourhoodImg.width}}&lt;/p&gt;
+
+
+&lt;div class &#x3D;&quot;neighbourhood&quot;&gt;
+    &lt;img #neighbourhoodImg class &#x3D;&quot;neighbourhoodImg&quot; src&#x3D;{{buildingsImg}} alt&#x3D;&quot;&quot; usemap&#x3D;&quot;#neighbourhood&quot;  (window:resize)&#x3D;&quot;ChangeViewport()&quot;&gt;
+
+
+
+    &lt;map name&#x3D;&quot;neighbourhood&quot;&gt;
+        &lt;area placement&#x3D;&quot;middle&quot; ngbTooltip&#x3D;&quot;Tooltip on right&quot; class &#x3D; &quot;area-building&quot; shape&#x3D;&quot;rect&quot; coords&#x3D;{{cordsBuilding1}} (click)&#x3D;&quot;NavigateToForm(buildings[0].id)&quot;&gt;
+        &lt;area placement&#x3D;&quot;middle&quot; ngbTooltip&#x3D;&quot;Tooltip on right&quot; *ngIf&#x3D;&quot;numberOfBuildingsIs2&quot; class &#x3D; &quot;area-building&quot; shape&#x3D;&quot;rect&quot; coords&#x3D;{{cordsBuilding2Version1}} (click)&#x3D;&quot;NavigateToForm(buildings[1].id)&quot;&gt;
+        &lt;area placement&#x3D;&quot;middle&quot; ngbTooltip&#x3D;&quot;Tooltip on right&quot; *ngIf&#x3D;&quot;numberOfBuildingsIs3&quot; class &#x3D; &quot;area-building&quot; shape&#x3D;&quot;rect&quot; coords&#x3D;{{cordsBuilding2Version2}} (click)&#x3D;&quot;NavigateToForm(buildings[1].id)&quot;&gt;
+        &lt;area *ngIf&#x3D;&quot;numberOfBuildingsIs3&quot; class &#x3D; &quot;area-building&quot; shape&#x3D;&quot;rect&quot; coords&#x3D;{{cordsBuilding3}}  (click)&#x3D;&quot;NavigateToForm(buildings[2].id)&quot;&gt;
+    &lt;/map&gt;
+&lt;/div&gt;
+
+
+
+&lt;div *ngFor&#x3D;&quot;let building of buildings&quot;&gt;
+    
+    {{building.id}}
+    {{building.graduateProgram}}
+    {{building.color}}
+    {{building.bonus}}
+&lt;/div&gt;
+
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-styleData">
+                <p class="comment">
+                    <code>./neighbourhood.component.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">
+
+.neighbourhood {
+    position: relative;
+    max-width: 100%;
+    vertical-align: middle;
+    height: auto;
+}
+
+map {
+    position: absolute;
+    border: green solid 1px;
+}
+
+area {
+    cursor: pointer;
+    position: absolute;
+    // border: red solid 1px;
+    // opacity: 0.4;
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><p>neighbourhood works! {{neighbourhoodImg.width}}</p><div class ="neighbourhood">    <img #neighbourhoodImg class ="neighbourhoodImg" src={{buildingsImg}} alt="" usemap="#neighbourhood"  (window:resize)="ChangeViewport()">    <map name="neighbourhood">        <area placement="middle" ngbTooltip="Tooltip on right" class = "area-building" shape="rect" coords={{cordsBuilding1}} (click)="NavigateToForm(buildings[0].id)">        <area placement="middle" ngbTooltip="Tooltip on right" *ngIf="numberOfBuildingsIs2" class = "area-building" shape="rect" coords={{cordsBuilding2Version1}} (click)="NavigateToForm(buildings[1].id)">        <area placement="middle" ngbTooltip="Tooltip on right" *ngIf="numberOfBuildingsIs3" class = "area-building" shape="rect" coords={{cordsBuilding2Version2}} (click)="NavigateToForm(buildings[1].id)">        <area *ngIf="numberOfBuildingsIs3" class = "area-building" shape="rect" coords={{cordsBuilding3}}  (click)="NavigateToForm(buildings[2].id)">    </map></div><div *ngFor="let building of buildings">        {{building.id}}    {{building.graduateProgram}}    {{building.color}}    {{building.bonus}}</div></div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'FormTemplateComponent', 'selector': 'app-form-template'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MetrolineComponent', 'selector': 'app-metroline'},{'name': 'NeighbourhoodComponent', 'selector': 'app-neighbourhood'},{'name': 'PointsComponent', 'selector': 'app-points'},{'name': 'StationComponent', 'selector': 'app-station'},{'name': 'StationsComponent', 'selector': 'app-stations'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'NeighbourhoodComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'NeighbourhoodComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>
